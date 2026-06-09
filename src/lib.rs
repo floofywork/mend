@@ -63,3 +63,22 @@ impl From<std::io::Error> for MendError {
 
 /// The project-wide result alias: every fallible function returns this.
 pub type Result<T> = std::result::Result<T, MendError>;
+
+/// The single seam that isolates non-determinism behind the system.
+///
+/// A `Completer` turns a borrowed prompt into a completion, collapsing every
+/// backend failure into [`MendError::Completer`] via the [`Result`] return.
+/// Every layer above depends on this abstraction, never on a concrete backend,
+/// so the deterministic layers stay deterministic and testable. Concrete
+/// implementations live in separate tasks; this is the definition only.
+///
+/// The trait is object-safe: `Box<dyn Completer>` and `&dyn Completer` are
+/// nameable, so callers can hold a backend behind a trait object. The prompt is
+/// borrowed (`&str`), not consumed, leaving its owner usable after the call.
+pub trait Completer {
+    /// Produce a completion for the given borrowed `prompt`.
+    ///
+    /// Returns the completion text, or [`MendError::Completer`] if the backend
+    /// failed to produce one.
+    fn complete(&self, prompt: &str) -> Result<String>;
+}
