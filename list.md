@@ -105,7 +105,7 @@ The deterministic stand-in that makes end-to-end tests possible without a networ
 ### T-01.03  Load configuration
 id: T-01.03
 phase: 1
-status: pending
+status: blocked
 depends_on: [T-00.02]
 stack: rust
 criteria:
