@@ -1,0 +1,6 @@
+# Build artifacts and harness scratch — never committed.
+/target
+/.ratchet/worktrees/
+/.ratchet/seedcheck/
+# The audit-log HMAC key is a secret; the chained audit.log itself IS tracked.
+/.ratchet/audit.key

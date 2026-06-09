@@ -1,0 +1,11 @@
+[project]
+stack = "rust"
+root  = "."
+
+[claude]
+model      = "claude-opus-4-8"
+extra_args = ["--dangerously-skip-permissions"]
+
+[budget]
+max_attempts_per_task = 6
+max_iterations        = 400
