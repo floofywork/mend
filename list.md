@@ -32,8 +32,12 @@ criteria:
 not_doing:
   - No conversion impls for third-party error types beyond `std::io::Error`.
   - No per-subcommand error wrapping.
-test_files: []
-criteria_map: {}
+test_files: [tests/error.rs]
+criteria_map:
+  C1: [c1_menderror_implements_error_and_display]
+  C2: [c2_menderror_has_distinct_variants]
+  C3: [c3_every_variant_display_is_non_empty]
+  C4: [c4_result_alias_is_exported]
 attempts: 1
 last_failure: ""
 ---
