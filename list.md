@@ -119,7 +119,13 @@ not_doing:
 test_files: []
 criteria_map: {}
 attempts: 1
-last_failure: ""
+last_failure: |
+  surviving mutant at src/config.rs:120 (bool-or-to-and) — frozen tests do not kill it
+  surviving mutant at src/config.rs:135 (cmp-ge-to-gt) — frozen tests do not kill it
+  surviving mutant at src/config.rs:138 (bool-and-to-or) — frozen tests do not kill it
+  surviving mutant at src/config.rs:138 (cmp-eq-to-ne) — frozen tests do not kill it
+  surviving mutant at src/config.rs:138 (bool-and-to-or) — frozen tests do not kill it
+  surviving mutant at src/config.rs:138 (cmp-eq-to-ne) — frozen tests do not kill it
 ---
 The settings boundary feeding model, endpoint, and budget into the deterministic layers. Inputs: a TOML file and three env vars; bounds: three typed fields with a precedence rule. Outputs: a `Config` struct. Errors/edges: missing file falls back to defaults; malformed integer budget is a `Config` error. Invariant: env always overrides file, file always overrides defaults. Done-check: the four load/override/default/error criteria. Fenced so token budgeting itself lives elsewhere.
 
