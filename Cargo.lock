@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "rgstub_scaffold"
+name = "mend"
 version = "0.0.0"
