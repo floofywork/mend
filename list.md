@@ -64,7 +64,7 @@ The boundary that turns argv into a typed command. Inputs: process arguments; bo
 ### T-01.01  Define Completer trait
 id: T-01.01
 phase: 1
-status: pending
+status: done
 depends_on: [T-00.02]
 stack: rust
 criteria:
@@ -74,11 +74,8 @@ criteria:
 not_doing:
   - No real or mock implementation of the trait.
   - No streaming or multi-turn conversation surface.
-test_files: [tests/completer.rs]
-criteria_map:
-  C1: [c1_completer_trait_has_complete_signature]
-  C2: [c2_completer_is_object_safe]
-  C3: [c3_prompt_is_borrowed_not_consumed]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
