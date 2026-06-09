@@ -118,7 +118,7 @@ not_doing:
   - No secret/credential management.
 test_files: []
 criteria_map: {}
-attempts: 2
+attempts: 3
 last_failure: |
   surviving mutant at src/config.rs:120 (bool-or-to-and) — frozen tests do not kill it
   surviving mutant at src/config.rs:135 (cmp-ge-to-gt) — frozen tests do not kill it
