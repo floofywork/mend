@@ -95,8 +95,12 @@ criteria:
 not_doing:
   - No network access of any kind.
   - No response templating or prompt-conditional logic.
-test_files: []
-criteria_map: {}
+test_files: [tests/mock_completer.rs]
+criteria_map:
+  C1: [c1_responses_replayed_in_fifo_order]
+  C2: [c2_exhausting_the_script_returns_completer_error]
+  C3: [c3_received_prompts_are_recorded_in_order]
+  C4: [c4_mock_completer_implements_completer]
 attempts: 1
 last_failure: ""
 ---
