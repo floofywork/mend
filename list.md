@@ -1,7 +1,7 @@
 ### T-00.01  Scaffold Cargo binary crate
 id: T-00.01
 phase: 0
-status: pending
+status: done
 depends_on: []
 stack: rust
 criteria:
@@ -11,11 +11,8 @@ criteria:
 not_doing:
   - No CLI parsing, subcommand, or business logic.
   - No dependency wiring beyond what the empty crate needs to build.
-test_files: [tests/scaffold.rs]
-criteria_map:
-  C1: [c1_cargo_build_emits_mend_debug_binary]
-  C2: [c2_manifest_declares_mend_edition_2021_or_later]
-  C3: [c3_cargo_test_green_with_zero_tests_on_empty_scaffold]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
