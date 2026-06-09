@@ -8,6 +8,10 @@
 
 use std::fmt;
 
+pub mod cli;
+
+pub use cli::{parse, Command};
+
 /// The unified error type for the whole `mend` system.
 ///
 /// Each variant names the layer that produced the failure. `Io` wraps the one
