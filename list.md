@@ -34,7 +34,7 @@ not_doing:
   - No per-subcommand error wrapping.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 A single error vocabulary so every deterministic layer surfaces failure uniformly rather than panicking. Inputs: none; this is a type definition. Outputs: the `MendError` enum and `Result` alias. Errors/edges: the type itself is the edge-handling mechanism for the whole system. Invariant: every fallible function in the project returns `Result<T>`. Done-check: the enum compiles, the trait impls resolve, and Display strings are non-empty. Scope fenced to the taxonomy; mapping concrete failures into variants happens in the owning tasks.
