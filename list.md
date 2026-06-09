@@ -54,8 +54,13 @@ criteria:
 not_doing:
   - No execution of any command; this only produces the parsed command struct.
   - No config or Completer construction.
-test_files: []
-criteria_map: {}
+test_files: [tests/cli.rs]
+criteria_map:
+  C1: [c1_explain_path_and_symbol_none]
+  C2: [c2_explain_symbol_some]
+  C3: [c3_edit_path_and_instruction]
+  C4: [c4_apply_json_booleans_and_dryrun_default]
+  C5: [c5_unknown_subcommand_exits_nonzero_with_usage_on_stderr]
 attempts: 1
 last_failure: ""
 ---
