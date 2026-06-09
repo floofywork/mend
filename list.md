@@ -118,7 +118,7 @@ not_doing:
   - No secret/credential management.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The settings boundary feeding model, endpoint, and budget into the deterministic layers. Inputs: a TOML file and three env vars; bounds: three typed fields with a precedence rule. Outputs: a `Config` struct. Errors/edges: missing file falls back to defaults; malformed integer budget is a `Config` error. Invariant: env always overrides file, file always overrides defaults. Done-check: the four load/override/default/error criteria. Fenced so token budgeting itself lives elsewhere.
