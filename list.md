@@ -322,8 +322,12 @@ criteria:
 not_doing:
   - No patch application.
   - No confidence scoring beyond fixed first-match precedence.
-test_files: []
-criteria_map: {}
+test_files: [tests/dispatch.rs]
+criteria_map:
+  C1: [c1_search_replace_marker_routes_to_search_replace]
+  C2: [c2_hunk_marker_routes_to_unified_diff]
+  C3: [c3_fenced_only_routes_to_fenced]
+  C4: [c4_unknown_format_is_parse_error]
 attempts: 1
 last_failure: ""
 ---
