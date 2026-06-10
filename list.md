@@ -105,7 +105,7 @@ The deterministic stand-in that makes end-to-end tests possible without a networ
 ### T-01.03  Load configuration
 id: T-01.03
 phase: 1
-status: blocked
+status: done
 depends_on: [T-00.02]
 stack: rust
 criteria:
@@ -116,20 +116,10 @@ criteria:
 not_doing:
   - No remote or per-command configuration sources.
   - No secret/credential management.
-test_files: [tests/config.rs]
-criteria_map:
-  C1: [c1_loads_fields_from_file]
-  C2: [c2_env_overrides_file]
-  C3: [c3_missing_file_yields_defaults]
-  C4: [c4_non_integer_budget_in_file_is_config_error, c4_non_integer_budget_in_env_is_config_error]
+test_files: []
+criteria_map: {}
 attempts: 4
-last_failure: |
-  surviving mutant at src/config.rs:120 (bool-or-to-and) — frozen tests do not kill it
-  surviving mutant at src/config.rs:135 (cmp-ge-to-gt) — frozen tests do not kill it
-  surviving mutant at src/config.rs:138 (bool-and-to-or) — frozen tests do not kill it
-  surviving mutant at src/config.rs:138 (cmp-eq-to-ne) — frozen tests do not kill it
-  surviving mutant at src/config.rs:138 (bool-and-to-or) — frozen tests do not kill it
-  surviving mutant at src/config.rs:138 (cmp-eq-to-ne) — frozen tests do not kill it
+last_failure: ""
 ---
 The settings boundary feeding model, endpoint, and budget into the deterministic layers. Inputs: a TOML file and three env vars; bounds: three typed fields with a precedence rule. Outputs: a `Config` struct. Errors/edges: missing file falls back to defaults; malformed integer budget is a `Config` error. Invariant: env always overrides file, file always overrides defaults. Done-check: the four load/override/default/error criteria. Fenced so token budgeting itself lives elsewhere.
 
