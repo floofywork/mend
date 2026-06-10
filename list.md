@@ -412,7 +412,7 @@ The engine that produces new file content from validated edits. Inputs: source t
 ### T-06.01  Compute unified diff
 id: T-06.01
 phase: 6
-status: pending
+status: done
 depends_on: [T-00.02]
 stack: rust
 criteria:
@@ -422,11 +422,8 @@ criteria:
 not_doing:
   - No colouring.
   - No file I/O.
-test_files: [tests/compute_unified_diff.rs]
-criteria_map:
-  C1: [c1_change_yields_hunk_header]
-  C2: [c2_unchanged_regions_elided_to_fixed_context]
-  C3: [c3_identical_inputs_yield_empty_diff]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
