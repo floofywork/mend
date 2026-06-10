@@ -14,6 +14,7 @@ pub mod config;
 pub mod context;
 pub mod imports;
 pub mod mock;
+pub mod prompt;
 pub mod structure;
 
 pub use budget::budget;
@@ -22,6 +23,7 @@ pub use cli::{parse, Command};
 pub use config::Config;
 pub use imports::extract_imports;
 pub use mock::MockCompleter;
+pub use prompt::{edit_prompt, explain_prompt, fix_prompt, test_prompt};
 pub use structure::extract_structure;
 
 /// The unified error type for the whole `mend` system.
