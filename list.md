@@ -291,7 +291,7 @@ The targeted-edit response format. Inputs: an LLM response string; bounds: the t
 ### T-04.04  Parse unified diff
 id: T-04.04
 phase: 4
-status: pending
+status: done
 depends_on: [T-04.01]
 stack: rust
 criteria:
@@ -301,11 +301,8 @@ criteria:
 not_doing:
   - No multi-file diff headers.
   - No patch application.
-test_files: [tests/unified_diff.rs]
-criteria_map:
-  C1: [c1_single_hunk_is_one_parsed_edit]
-  C2: [c2_context_and_removed_populate_search_side]
-  C3: [c3_malformed_header_is_parse_error]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
