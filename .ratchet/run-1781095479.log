@@ -2,3 +2,442 @@
 Ratchet run — base branch `main`, stack `rust`
 
 ── iteration 1: T-00.01  Scaffold Cargo binary crate
+  · system: init
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · This is attempt 6. There's substantial pre-existing state. Let me understand the ratchet structure and what's gone wrong before.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All these downstream files are committed in T-00.01's branch — that's contamination for a scaffold-only task. Let me see the actual cargo state, which is the deterministic judge.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The scaffold test target compiles and all three tests fail for the correct reason (package name `rgstub_scaffold` ≠ `mend`). That is a valid RED state for C1/C2/C3.
+
+But the worktree is contaminated with ~20 downstream source files and 21 unrelated test files. Let me confirm whether a full `cargo test` even compiles, and check how the gate evaluates RED.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The whole crate compiles cleanly. So the scaffold tests compile and fail correctly. Let me understand why the prior 5 attempts failed by reading the journal/report.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Attempt 4 failed the RED gate with a **zero-diff** (agent made no changes). Let me check the README to understand the RED gate's exact requirements.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me understand the diff between this branch and main — that's what the RED gate likely measures.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · `git diff main` is **empty** — the branch is identical to main, and main itself carries the stub manifest + scaffold tests. Attempt 4 failed RED with zero diff. Let me read the audit log for the exact gate verdict reasoning.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The full picture is clearer now. The original T-00.01 attempt 1 passed all gates; the canonical frozen `tests/scaffold.rs` is correct. But there's a contradiction to resolve: iteration 2's agent claimed sibling tests `use mend` and won't compile under the renamed stub, yet my `--no-run` build compiled all of them. Let me check how sibling tests reference the crate.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The design is clear now: every sibling test is std-only and self-contained (they spawn `cargo` to build probes against `mend`), so they all compile regardless of crate name — which is why the full `--no-run` succeeded. The iteration-2 agent's "won't compile" claim was wrong.
+
+The current on-disk state (stub `rgstub_scaffold` manifest + frozen `tests/scaffold.rs`) matches the original gate-approved RED. Let me inspect the original red/freeze commits and how the gate is actually defined.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now decisive: the original **gate-approved** RED commit `188ee85` had a **minimal tree** — only `src/main.rs`, `tests/scaffold.rs`, `Cargo.toml` (stub). The current worktree is contaminated with 21 src + 22 test files from downstream tasks. That contamination is the only difference between the passing original RED and the failing attempts 2–6.
+
+Let me find the exact RED gate definition before deciding how to act.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · The ratchet source is available. Let me read the gate logic — this is ground truth for what the RED gate checks.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The RED gate (`FailRightGate` for Rust, gate.rs:310-345): run `cargo test --no-run`; if it **compiles** and then `cargo test` **fails**, the gate **passes**. My earlier run showed compile succeeds and scaffold tests fail — which *should* pass the gate. Let me reproduce the gate's exact commands (no `--offline`) to see the real behavior.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Compile exits 0 → gate runs `cargo test` → scaffold tests fail → fail-right should PASS. So the failure must be in another RED-phase gate. Let me read the red cascade.
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · RED cascade is likely `phase5_red`: fail-right (should pass) → criteria-coverage. Let me read the CriteriaCoverageGate and how it reads `criteria_map` from list.md.
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · criteria-coverage reads `list.md`'s `criteria_map` for the task. Let me check T-00.01's record there.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Found the root cause:
+```
+test_files: []
+criteria_map: {}
+attempts: 6
+last_failure: red phase produced no test files under `tests/`
+```
+The branch was created from `main` which **already contains** `tests/scaffold.rs`, so the agent produces a **zero diff** under `tests/`, and ratchet rejects the red phase as "produced no test files". Let me find exactly how ratchet detects red-phase test files.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The killer is line 361-366: `changed_files(&wt)` filtered to test files must be **non-empty**. The worktree was created from `main` (which already has `tests/scaffold.rs`), so a no-op agent yields zero changed test files. I must make `tests/scaffold.rs` a genuine change relative to the base. Let me see `changed_files` and what `base` is.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The worktree was deleted out from under me (the harness is active). Let me check the current state.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The worktree is gone — the harness discarded it (the orchestrator's `discard` on red failure). I've diagnosed the root cause but need to understand `base` to know the right fix. Let me read the orchestrator's base computation and `changed_files`.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · `changed_files` = `git diff --name-only <base> HEAD`. The test file must differ from `base`. Let me find what `base` the live run loop passes for a reopened root task.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · `base` = `main`, which contains `tests/scaffold.rs` byte-identical to disk, so `git diff --name-only main HEAD` is empty → orchestrator.rs:367 rejects with "produced no test files" **before any gate runs**. That's the real failure — not the gate, not the contamination. The fix: the red phase must write a test file whose content **differs from main**. Let me check the live repo/worktree state.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Main is now at the attempt-6 commit with no `ratchet/T-00.01` worktree or branch left — the harness has cycled through all 6 attempts. Let me check whether a worktree exists right now to operate in.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I've reached a definitive diagnosis. Let me confirm the worktree is truly gone (not mid-recreation) before finalizing.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · ## RED PHASE — T-00.01 (Scaffold Cargo binary crate): blocked, with root cause
+
+I read `CLAUDE.md`, the task record in `list.md`, the ratchet source under `$RATCHET_HOME`, and the prior-attempt journal/logs before acting. Here is the honest state.
+
+### The failing tests already exist and are correct
+`tests/scaffold.rs` covers all three criteria and **compiles and fails for the right reason** (verified empirically, exit 101):
+
+```
+c2 ... FAILED: package name must be `mend`, got `rgstub_scaffold`
+c1 ... FAILED: `cargo build` must emit a binary named `mend` under target/debug
+c3 ... FAILED: the scaffold must be the `mend` crate before its empty `cargo test` can be green
+```
+- C1 `c1_cargo_build_emits_mend_debug_binary` — asserts `cargo build` exits 0 **and** a binary literally named `mend` exists under `target/debug` (both sides pinned).
+- C2 `c2_manifest_declares_mend_edition_2021_or_later` — asserts `name == "mend"` and `edition` parses to a year with the boundary `year >= 2021`.
+- C3 `c3_cargo_test_green_with_zero_tests_on_empty_scaffold` — asserts a pristine empty scaffold's `cargo test` exits 0 **and** emits `running 0 tests`.
+
+The fail-right gate itself would pass: `cargo test --no-run` compiles cleanly (exit 0) and `cargo test` fails — which is exactly what `FailRightGate::rust` (gate.rs:310-345) accepts.
+
+### Why all 6 attempts fail at red — and it is *not* the gate
+The red phase never reaches the gate. In `orchestrator.rs:361-379`, before any gate runs, ratchet computes:
+
+```rust
+let test_files = self.worktrees.changed_files(&wt)?   // git diff --name-only <base> HEAD
+    .filter(|f| commands.is_test_file(f));
+if test_files.is_empty() { return Failed { gate: "red", "produced no test files under `tests/`" } }
+```
+
+`base` is **`main`** (session.rs:362), and `main` already contains `tests/scaffold.rs` **byte-identical** to disk — because this is the root task being *reopened* after 18 downstream tasks were merged. So `git diff --name-only main HEAD` for `tests/` is **empty**, and the red phase is rejected with exactly the message recorded in `list.md`:
+
+```
+test_files: []   criteria_map: {}   attempts: 6
+last_failure: red phase produced no test files under `tests/`
+```
+
+This is structural: re-deriving the root scaffold task against a base that already carries its frozen test cannot produce a "new" test file. The only agent-level escape is to rewrite `tests/scaffold.rs` so it *differs* from `main` — which requires a worktree to author and commit in.
+
+### Why I cannot perform even that escape now
+The per-task worktree `…/.ratchet/worktrees/T-00.01` was **deleted out from under this session mid-run** (the same failure the attempt-2/4 agents logged). It is gone and not being recreated — `git worktree list` shows only `main`, `.ratchet/worktrees/` is empty, and every shell `cwd` resets to the main checkout. There is no worktree to write tests into or commit from, and the task is at `attempts: 6` (= `max_attempts_per_task`). Writing into the `main` checkout would corrupt the base branch and is not the red-phase contract.
+
+### Conclusion
+Per CLAUDE.md ("If you cannot implement the real thing, log a blocker and stop — a green that isn't real is the worst outcome"): the tests are authored and genuinely red, but the red phase is **blocked by an orchestration-level bug plus worktree instability**, neither fixable from inside the red-phase agent. The fix belongs in ratchet (`orchestrator.rs`): when a root/`depends_on: []` task is reopened, its red phase must run against a base that excludes its own frozen test files (or detect re-derivation and skip the "new test files" requirement), and the worktree must not be torn down during the agent run.
+
+COVERAGE: C1=c1_cargo_build_emits_mend_debug_binary; C2=c2_manifest_declares_mend_edition_2021_or_later; C3=c3_cargo_test_green_with_zero_tests_on_empty_scaffold
+  · result: success (40 turns, $2.7319)
+ratchet: command `git -C ./.ratchet/worktrees/T-00.01 add -A` failed with exit status: 128:
+Schwerwiegend: cannot change to './.ratchet/worktrees/T-00.01': Datei oder Verzeichnis nicht gefunden
+
