@@ -26,3 +26,293 @@ Ratchet run — base branch `main`, stack `rust`
   ✓ done (diff c68334a0)
 
 ── iteration 4: T-06.04  Dispatch output mode
+  · system: init
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now I understand the codebase conventions. The tests use a **probe pattern**: each test compiles a tiny crate against the real `mend` crate and runs it; redness comes from the probe failing to *build* because the API doesn't exist yet. Let me verify there's no existing `dispatch_output` symbol or test file.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Confirmed: `dispatch_output` and `OutputMode` don't exist. Now I'll write the RED test file following the established probe pattern, pinning a clean contract for the output-mode dispatcher.
+  · [tool: Write]
+  · [tool result]
+  · Now let me verify the test file compiles (std-only) and fails at runtime because the API doesn't exist yet.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All four tests compile (std-only) and fail correctly because `mend::dispatch_output` and `mend::OutputMode` don't exist yet — the probes fail to build, which is the proper RED state (failure from the missing implementation, not from a parse error in the test file).
+
+Summary of what I pinned, derived from the four criteria:
+
+- **C1** (dry-run): `dispatch_output(.., OutputMode::DryRun, color)` returns exactly `render_diff(compute_unified_diff(original, proposed), color)`, carries ANSI escapes when coloured, forwards the `color` flag (asserts both `true` and `false` sides), and leaves the on-disk file byte-for-byte unchanged.
+- **C2** (apply): `OutputMode::Apply` with an `Ok` applied result succeeds and writes the proposed text verbatim to the target path.
+- **C3** (json): `OutputMode::Json` returns the emitted `JsonResult` JSON (asserts `applied:false`, round-trips via `parse_json`), renders no diff (no ANSI escapes even with `color=true`), and does not touch disk.
+- **C4** (apply failure): `OutputMode::Apply` with an `Err(MendError::Patch(..))` applied result propagates exactly the `Patch` variant and writes nothing — the file stays the original.
+
+The contract these freeze: `mend::dispatch_output(path: &Path, original: &str, applied: Result<String>, edits: Vec<ParsedEdit>, mode: OutputMode, color: bool) -> Result<String>` plus a three-variant `OutputMode { DryRun, Apply, Json }`, reusing the existing `render_diff`/`compute_unified_diff`/`emit_json` seams — no command parsing, no backup/undo, in line with the out-of-scope notes.
+
+COVERAGE: C1=c1_dry_run_prints_diff_and_leaves_file_unmodified; C2=c2_apply_writes_proposed_to_disk; C3=c3_json_prints_result_and_renders_no_diff; C4=c4_apply_patch_failure_writes_nothing_and_returns_patch
+  · result: success (16 turns, $1.6339)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · I'll start by reading CLAUDE.md and understanding the frozen tests for this task.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · I'll explore the structure: src, tests, and the task spec.
+  · [tool: Bash]
+  · [tool result]
+  · The frozen test file is `tests/dispatch_output.rs`. Let me read it along with the current dispatch source and key supporting files.
+  · [tool: Read]
+  · [tool result]
+  · Now let me read the existing source files to understand the API surface I need to use.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · Now the supporting files: render_diff, unified_diff, parsed_edit, apply.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me check `compute_unified_diff` signature and the criteria map.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have everything I need. Let me write the `dispatch_output` module.
+  · [tool: Write]
+  · [tool result]
+  · Now wire it into lib.rs:
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · Now build and run the frozen test.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · All 4 frozen tests pass. Let me run the full suite to confirm nothing else broke.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · You've hit your session limit · resets 7:40pm (Europe/Berlin)
+  · result: error (18 turns, $0.6615)
+  · system: task_updated
+  · system: task_notification
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff 2cf751ff)
