@@ -342,8 +342,11 @@ criteria:
 not_doing:
   - No whitespace-tolerant or fuzzy matching.
   - No mutation of the source.
-test_files: []
-criteria_map: {}
+test_files: [tests/match_exact.rs]
+criteria_map:
+  C1: [c1_unique_match_returns_byte_equal_range]
+  C2: [c2_absent_search_returns_no_match]
+  C3: [c3_repeated_search_returns_ambiguous]
 attempts: 1
 last_failure: ""
 ---
