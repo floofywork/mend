@@ -64,7 +64,7 @@ The boundary that turns argv into a typed command. Inputs: process arguments; bo
 ### T-01.01  Define Completer trait
 id: T-01.01
 phase: 1
-status: pending
+status: done
 depends_on: [T-00.02]
 stack: rust
 criteria:

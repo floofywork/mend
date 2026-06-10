@@ -10,3 +10,9 @@ Ratchet run — base branch `main`, stack `rust`
   ✓ done (diff e3b0c442)
 
 ── iteration 2: T-01.01  Define Completer trait
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff 168bc58b)
