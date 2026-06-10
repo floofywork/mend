@@ -16,3 +16,5 @@ Ratchet run — base branch `main`, stack `rust`
   [✓] test
   [✓] mutation
   ✓ done (diff 794849e1)
+
+── iteration 3: T-00.03  Define CLI parser
