@@ -18,3 +18,21 @@ conclusions to disk, not just into your reply.
 - IDs are immutable. Splits add suffixes; nothing is renumbered or deleted.
 
 Label any genuine placeholder per rule.md — but better, do not leave one.
+
+## Passing the mutation gate (re-read every RED and GREEN phase)
+
+The mutation gate flips operators (`==`→`!=`, `>=`→`>`, `&&`→`||`, `+`→`-`, …) in
+your implementation and requires the frozen tests to KILL every mutant. Two rules
+follow, and ignoring either is the usual cause of a stalled task:
+
+- **GREEN: write the MINIMAL implementation that satisfies the frozen tests.**
+  Every operator and branch you write must be killed by a frozen test. If you add
+  validation, precedence, bounds, or boundary logic the frozen tests do not
+  exercise, a mutant will survive and the gate will reject the pass — and you
+  cannot edit the frozen tests to fix it. When in doubt, write less; do exactly
+  what the criteria require, nothing more.
+- **RED: write tests that pin every branch and both sides of every boundary.**
+  For each comparison or boolean the implementation will need, assert behaviour on
+  both sides (e.g. at the threshold and just past it, true and false). A test that
+  only checks the happy path leaves operator mutants alive and dooms the green
+  phase. Cover every criterion with boundary-exercising assertions.
