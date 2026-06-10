@@ -283,7 +283,7 @@ not_doing:
   - No nested-block handling.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The targeted-edit response format. Inputs: an LLM response string; bounds: the three sentinel markers. Outputs: (search, replace) `ParsedEdit`s. Errors/edges: a malformed block missing its divider is a `Parse` error. Invariant: search and replace halves are split exactly on the divider. Done-check: the three criteria. Fenced from matching logic, which belongs to the patch engine.
