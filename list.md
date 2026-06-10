@@ -444,7 +444,7 @@ not_doing:
   - No paging or terminal-width wrapping.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The human-facing presentation of a diff. Inputs: a unified diff string and a TTY signal; bounds: per-line ANSI styling. Outputs: a coloured (or plain) diff string. Errors/edges: non-TTY output strips colour; empty diff stays empty. Invariant: stripping ANSI codes recovers the original diff text. Done-check: the colour, non-TTY, and empty criteria. Fenced from computation so rendering is purely presentational.
