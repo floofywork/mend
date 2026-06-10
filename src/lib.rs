@@ -42,7 +42,7 @@ pub use parsed_edit::ParsedEdit;
 pub use prompt::{edit_prompt, explain_prompt, fix_prompt, test_prompt};
 pub use search_replace::parse_search_replace;
 pub use structure::extract_structure;
-pub use unified_diff::parse_unified_diff;
+pub use unified_diff::{compute_unified_diff, parse_unified_diff};
 
 /// The unified error type for the whole `mend` system.
 ///
