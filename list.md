@@ -200,7 +200,7 @@ not_doing:
   - No Completer invocation.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The join point that produces the single context blob fed to prompt assembly. Inputs: a file's extracted structure, imports, and the configured budget; bounds: output ≤ budget. Outputs: one deterministic context string. Errors/edges: oversize context is truncated by the budgeter rather than erroring. Invariant: same file plus same config always yields the same bytes. Done-check: the determinism and budget-bound criteria. Fenced from prompt framing so the next task owns command-specific shaping.
