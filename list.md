@@ -263,7 +263,7 @@ not_doing:
   - No language validation of the tag.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The simplest response format: a whole-file replacement in a code fence. Inputs: an LLM response string; bounds: triple-backtick fences. Outputs: whole-file `ParsedEdit`s in order. Errors/edges: an unclosed fence is a `Parse` error. Invariant: each emitted edit carries the verbatim fenced body without the language tag. Done-check: the four criteria. Fenced to one format so detection logic stays separate.
