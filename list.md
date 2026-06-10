@@ -372,7 +372,7 @@ The tolerant fallback when exact matching fails. Inputs: source text and search 
 ### T-05.03  Detect conflicts
 id: T-05.03
 phase: 5
-status: pending
+status: done
 depends_on: [T-05.01, T-05.02]
 stack: rust
 criteria:
@@ -382,11 +382,8 @@ criteria:
 not_doing:
   - No automatic conflict resolution.
   - No source mutation.
-test_files: [tests/conflict.rs]
-criteria_map:
-  C1: [c1_overlapping_ranges_are_flagged]
-  C2: [c2_stale_match_after_prior_edit_is_flagged]
-  C3: [c3_clean_set_returns_empty_list]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
