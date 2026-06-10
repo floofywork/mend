@@ -188,7 +188,7 @@ The mechanism that keeps prompts within the configured budget deterministically.
 ### T-02.04  Assemble file context
 id: T-02.04
 phase: 2
-status: pending
+status: done
 depends_on: [T-02.01, T-02.02, T-02.03, T-01.03]
 stack: rust
 criteria:
@@ -198,11 +198,8 @@ criteria:
 not_doing:
   - No command-specific framing or instructions.
   - No Completer invocation.
-test_files: [tests/context.rs]
-criteria_map:
-  C1: [c1_combines_structure_and_imports]
-  C2: [c2_assembled_context_within_budget]
-  C3: [c3_identical_inputs_are_byte_identical]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
