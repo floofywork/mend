@@ -13,8 +13,8 @@ not_doing:
   - No dependency wiring beyond what the empty crate needs to build.
 test_files: []
 criteria_map: {}
-attempts: 6
-last_failure: red phase produced no test files under `tests/`
+attempts: 0
+last_failure: ""
 ---
 The root surface every other task builds on. Inputs: none beyond a Cargo manifest; bounds: a buildable empty binary crate. Outputs: a compiling `mend` binary and a green empty test run. Errors/edges: a manifest that fails to parse is the only failure, surfaced by cargo itself. Invariant: the workspace always compiles from this point forward. Done-check: the three criteria observable via cargo. Kept deliberately inert so later modules attach without rework.
 
@@ -34,7 +34,7 @@ not_doing:
   - No per-subcommand error wrapping.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 A single error vocabulary so every deterministic layer surfaces failure uniformly rather than panicking. Inputs: none; this is a type definition. Outputs: the `MendError` enum and `Result` alias. Errors/edges: the type itself is the edge-handling mechanism for the whole system. Invariant: every fallible function in the project returns `Result<T>`. Done-check: the enum compiles, the trait impls resolve, and Display strings are non-empty. Scope fenced to the taxonomy; mapping concrete failures into variants happens in the owning tasks.
@@ -56,7 +56,7 @@ not_doing:
   - No config or Completer construction.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The boundary that turns argv into a typed command. Inputs: process arguments; bounds: the four subcommands with their flags. Outputs: an enum of parsed commands carrying validated paths, optional symbol, instruction, error message, and output-mode flags. Errors/edges: unknown subcommand, missing positional, and mutually exclusive flag handling surface as a non-zero exit with usage. Invariant: a successfully parsed command is structurally complete for its variant. Done-check: the five parsing assertions. Scope fenced to parsing so dispatch stays a later concern.
@@ -76,7 +76,7 @@ not_doing:
   - No streaming or multi-turn conversation surface.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The single seam that isolates non-determinism. Inputs: a borrowed prompt string; bounds: one synchronous call returning a completion or a `MendError::Completer`. Outputs: the trait definition only. Errors/edges: all backend failure collapses into the `Result` return. Invariant: every layer above depends on this trait, never on a concrete backend, so tests stay deterministic. Done-check: object-safety and signature compile checks. Fenced to the abstraction; implementations are separate tasks.
@@ -97,7 +97,7 @@ not_doing:
   - No response templating or prompt-conditional logic.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The deterministic stand-in that makes end-to-end tests possible without a network. Inputs: a pre-scripted vector of responses; bounds: one response consumed per call. Outputs: scripted completions plus a recorded prompt log. Errors/edges: exhausting the script is a deterministic `Completer` error, not a panic. Invariant: identical scripts and call sequences yield identical behaviour every run. Done-check: the FIFO, exhaustion, recording, and trait-impl criteria. Scope fenced strictly to test-driving behaviour.
@@ -118,7 +118,7 @@ not_doing:
   - No secret/credential management.
 test_files: []
 criteria_map: {}
-attempts: 4
+attempts: 0
 last_failure: ""
 ---
 The settings boundary feeding model, endpoint, and budget into the deterministic layers. Inputs: a TOML file and three env vars; bounds: three typed fields with a precedence rule. Outputs: a `Config` struct. Errors/edges: missing file falls back to defaults; malformed integer budget is a `Config` error. Invariant: env always overrides file, file always overrides defaults. Done-check: the four load/override/default/error criteria. Fenced so token budgeting itself lives elsewhere.
@@ -139,7 +139,7 @@ not_doing:
   - No body extraction; signatures only.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The first half of context gathering: a structural summary of the target. Inputs: a Rust source string; bounds: top-level public item signatures. Outputs: an ordered list of signature strings. Errors/edges: empty input is valid and empty; unparseable input is a `Parse` error caught before it can panic. Invariant: only the public API surface is ever included. Done-check: the four extraction criteria. Fenced to one language and to signatures so the task stays small.
@@ -159,7 +159,7 @@ not_doing:
   - No glob (`*`) expansion into concrete names.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The second half of context gathering: the file's declared dependencies. Inputs: a Rust source string; bounds: `use` declarations only. Outputs: a flat list of fully-qualified import path strings. Errors/edges: no imports yields an empty list; grouped imports expand deterministically. Invariant: each returned string is a single concrete path. Done-check: the three criteria. Fenced away from resolution so it remains a pure syntactic pass.
@@ -180,7 +180,7 @@ not_doing:
   - No semantic-aware truncation (line/char boundary only).
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The mechanism that keeps prompts within the configured budget deterministically. Inputs: a text string and an integer budget; bounds: budget ≥ 0. Outputs: text guaranteed within the estimated budget, marked if cut. Errors/edges: zero budget yields empty; oversize input truncates. Invariant: estimated tokens of the output never exceed `n`. Done-check: the four criteria. Fenced to a deterministic heuristic so tests never depend on a real tokenizer.
@@ -200,7 +200,7 @@ not_doing:
   - No Completer invocation.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The join point that produces the single context blob fed to prompt assembly. Inputs: a file's extracted structure, imports, and the configured budget; bounds: output ≤ budget. Outputs: one deterministic context string. Errors/edges: oversize context is truncated by the budgeter rather than erroring. Invariant: same file plus same config always yields the same bytes. Done-check: the determinism and budget-bound criteria. Fenced from prompt framing so the next task owns command-specific shaping.
@@ -222,7 +222,7 @@ not_doing:
   - No response parsing.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The deterministic prompt layer, one builder per subcommand over a shared module. Inputs: the assembled context plus per-command parameters (symbol, instruction, error, none); bounds: each builder is total over its inputs. Outputs: four prompt strings. Errors/edges: absent optional inputs (symbol, error) are handled by omission, not error. Invariant: every builder is referentially transparent. Done-check: the five embedding/purity criteria. Fenced to construction so the LLM round-trip stays in the command tasks.
@@ -242,7 +242,7 @@ not_doing:
   - No patch application.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The shared currency all three parsers emit and the patch engine consumes. Inputs: none; a data definition. Outputs: the `ParsedEdit` type. Errors/edges: none at this layer; it is a value type. Invariant: every response format reduces to a `Vec<ParsedEdit>`. Done-check: the variant, collection, and derive criteria. Fenced to the model so parser and applier tasks share one contract.
@@ -263,7 +263,7 @@ not_doing:
   - No language validation of the tag.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The simplest response format: a whole-file replacement in a code fence. Inputs: an LLM response string; bounds: triple-backtick fences. Outputs: whole-file `ParsedEdit`s in order. Errors/edges: an unclosed fence is a `Parse` error. Invariant: each emitted edit carries the verbatim fenced body without the language tag. Done-check: the four criteria. Fenced to one format so detection logic stays separate.
@@ -283,7 +283,7 @@ not_doing:
   - No nested-block handling.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The targeted-edit response format. Inputs: an LLM response string; bounds: the three sentinel markers. Outputs: (search, replace) `ParsedEdit`s. Errors/edges: a malformed block missing its divider is a `Parse` error. Invariant: search and replace halves are split exactly on the divider. Done-check: the three criteria. Fenced from matching logic, which belongs to the patch engine.
@@ -303,7 +303,7 @@ not_doing:
   - No patch application.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The third response format: a unified diff. Inputs: an LLM response string; bounds: single-file `@@` hunks. Outputs: `ParsedEdit`s whose search side reconstructs the pre-image. Errors/edges: a malformed hunk header is a `Parse` error. Invariant: each hunk maps to one edit whose search and replace sides are derived solely from its lines. Done-check: the three criteria. Fenced to single-file diffs to keep the parser bounded.
@@ -324,7 +324,7 @@ not_doing:
   - No confidence scoring beyond fixed first-match precedence.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The dispatcher that picks a parser from a raw response. Inputs: an LLM response string; bounds: the three known formats. Outputs: a `Vec<ParsedEdit>` from the selected parser. Errors/edges: no recognizable format is a `Parse` error. Invariant: format selection follows a fixed precedence so identical responses always route identically. Done-check: the four routing criteria. Fenced to selection so each parser stays single-purpose.
@@ -344,7 +344,7 @@ not_doing:
   - No mutation of the source.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The precise half of the matcher. Inputs: source text and an edit's search text; bounds: exact line-range equality. Outputs: a matched range, a no-match signal, or an ambiguity signal. Errors/edges: absence and multiplicity are signalled, not errored or panicked. Invariant: a returned range is byte-equal to the search text. Done-check: the unique-match, no-match, and ambiguity criteria. Fenced from fuzzy logic so each matcher is independently testable.
@@ -364,7 +364,7 @@ not_doing:
   - No token-level or semantic similarity.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The tolerant fallback when exact matching fails. Inputs: source text and search text; bounds: whitespace-insensitive line comparison with a fixed threshold. Outputs: a range and a similarity score, or no-match. Errors/edges: below-threshold candidates are rejected rather than forced. Invariant: any accepted match scores at or above the threshold. Done-check: the whitespace, scoring, and threshold criteria. Fenced so exact matching remains the first-choice path.
@@ -384,7 +384,7 @@ not_doing:
   - No source mutation.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The validation pass that runs before any application. Inputs: source text and an ordered `Vec<ParsedEdit>`; bounds: overlap and post-application match checks. Outputs: a list of detected conflicts. Errors/edges: an empty list is the success signal. Invariant: an empty conflict list guarantees the edit set applies cleanly. Done-check: the overlap, stale-match, and clean-set criteria. Fenced from application so the applier can assume validated input.
@@ -404,7 +404,7 @@ not_doing:
   - No diff rendering.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The engine that produces new file content from validated edits. Inputs: source text and an ordered edit list; bounds: non-conflicting, matchable edits. Outputs: the rewritten text. Errors/edges: any conflict or no-match aborts with `Patch` and an unchanged source (transactional). Invariant: application is all-or-nothing. Done-check: the apply, whole-file, and abort criteria. Fenced to in-memory transformation so I/O stays in the output layer.
@@ -424,7 +424,7 @@ not_doing:
   - No file I/O.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The diff computation feeding both human and JSON output. Inputs: old and new text; bounds: single-file unified format. Outputs: a unified diff string. Errors/edges: identical inputs yield an empty diff (no spurious hunks). Invariant: applying the diff to old reproduces new. Done-check: the header, elision, and empty-diff criteria. Fenced from colour and I/O so it stays a pure function.
@@ -444,7 +444,7 @@ not_doing:
   - No paging or terminal-width wrapping.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The human-facing presentation of a diff. Inputs: a unified diff string and a TTY signal; bounds: per-line ANSI styling. Outputs: a coloured (or plain) diff string. Errors/edges: non-TTY output strips colour; empty diff stays empty. Invariant: stripping ANSI codes recovers the original diff text. Done-check: the colour, non-TTY, and empty criteria. Fenced from computation so rendering is purely presentational.
@@ -464,7 +464,7 @@ not_doing:
   - No partial/streaming output.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The machine-readable output format. Inputs: path, original and proposed text, edits, and an applied flag; bounds: one JSON object. Outputs: a serialized JSON string. Errors/edges: round-trip parse equality guards the schema. Invariant: the JSON fully reconstructs the result struct. Done-check: the serialize, applied-flag, and round-trip criteria. Fenced from the human path so the two output modes evolve independently.
@@ -485,7 +485,7 @@ not_doing:
   - No backup/undo of overwritten files.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 0
 last_failure: ""
 ---
 The single place that decides what reaches the user and the disk. Inputs: the applied result, original/proposed text, edits, and the output-mode flags; bounds: exactly one of three modes. Outputs: a printed diff, a written file, or printed JSON. Errors/edges: an apply-time patch failure is non-destructive. Invariant: only `--apply` ever touches disk. Done-check: the four mode criteria. Fenced so each subcommand reuses one output contract.
