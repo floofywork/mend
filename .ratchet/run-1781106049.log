@@ -16,3 +16,5 @@ Ratchet run — base branch `main`, stack `rust`
   [✓] test
   [✓] mutation
   ✓ done (diff 168bc58b)
+
+── iteration 3: T-01.02  Implement mock Completer

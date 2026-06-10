@@ -97,7 +97,7 @@ not_doing:
   - No response templating or prompt-conditional logic.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The deterministic stand-in that makes end-to-end tests possible without a network. Inputs: a pre-scripted vector of responses; bounds: one response consumed per call. Outputs: scripted completions plus a recorded prompt log. Errors/edges: exhausting the script is a deterministic `Completer` error, not a panic. Invariant: identical scripts and call sequences yield identical behaviour every run. Done-check: the FIFO, exhaustion, recording, and trait-impl criteria. Scope fenced strictly to test-driving behaviour.
