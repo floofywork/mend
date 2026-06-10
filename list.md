@@ -402,8 +402,11 @@ criteria:
 not_doing:
   - No disk writes.
   - No diff rendering.
-test_files: []
-criteria_map: {}
+test_files: [tests/apply.rs]
+criteria_map:
+  C1: [c1_applies_ordered_edits_and_returns_new_text]
+  C2: [c2_whole_file_replaces_entire_source]
+  C3: [c3_conflict_or_no_match_aborts_with_patch_unchanged]
 attempts: 1
 last_failure: ""
 ---
