@@ -362,8 +362,11 @@ criteria:
 not_doing:
   - No exact matching (delegates to T-05.01).
   - No token-level or semantic similarity.
-test_files: []
-criteria_map: {}
+test_files: [tests/match_fuzzy.rs]
+criteria_map:
+  C1: [c1_whitespace_insensitive_match_covers_source_region]
+  C2: [c2_match_carries_range_and_fractional_score_in_unit_interval]
+  C3: [c3_below_threshold_rejected_above_threshold_accepted]
 attempts: 1
 last_failure: ""
 ---
