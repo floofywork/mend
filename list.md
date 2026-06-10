@@ -178,8 +178,12 @@ criteria:
 not_doing:
   - No model-specific BPE tokenizer.
   - No semantic-aware truncation (line/char boundary only).
-test_files: []
-criteria_map: {}
+test_files: [tests/budget.rs]
+criteria_map:
+  C1: [c1_output_estimate_within_budget]
+  C2: [c2_fixed_deterministic_ratio]
+  C3: [c3_truncation_appends_visible_marker]
+  C4: [c4_zero_budget_yields_empty]
 attempts: 1
 last_failure: ""
 ---
