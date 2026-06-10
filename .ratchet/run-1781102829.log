@@ -18,3 +18,42 @@ Ratchet run — base branch `main`, stack `rust`
   ✓ done (diff 794849e1)
 
 ── iteration 3: T-00.03  Define CLI parser
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✗] test
+  · system: init
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The library parser is complete and correct (C1–C4 pass). The only gap is `main.rs` is an empty stub, so the real binary exits 0 for any args — failing C5. I'll route a parse failure to a non-zero exit with usage on stderr.
+  · [tool: Write]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · Exits non-zero with "usage" on stderr. The fix is minimal: `main.rs` now feeds argv to `mend::parse` and, only on the `Usage` variant, prints the message plus the `USAGE` line to stderr and exits 1. Valid commands still exit 0. C1–C4 were already green via the library parser, which is unchanged.
+  · result: success (9 turns, $0.5307)
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
