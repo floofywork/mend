@@ -137,8 +137,12 @@ criteria:
 not_doing:
   - No non-Rust languages.
   - No body extraction; signatures only.
-test_files: []
-criteria_map: {}
+test_files: [tests/structure.rs]
+criteria_map:
+  C1: [c1_extracts_public_item_signatures]
+  C2: [c2_excludes_non_pub_items]
+  C3: [c3_empty_file_yields_empty_list]
+  C4: [c4_unparseable_source_is_parse_error]
 attempts: 1
 last_failure: ""
 ---

@@ -11,10 +11,12 @@ use std::fmt;
 pub mod cli;
 pub mod config;
 pub mod mock;
+pub mod structure;
 
 pub use cli::{parse, Command};
 pub use config::Config;
 pub use mock::MockCompleter;
+pub use structure::extract_structure;
 
 /// The unified error type for the whole `mend` system.
 ///
