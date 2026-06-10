@@ -485,7 +485,7 @@ not_doing:
   - No backup/undo of overwritten files.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The single place that decides what reaches the user and the disk. Inputs: the applied result, original/proposed text, edits, and the output-mode flags; bounds: exactly one of three modes. Outputs: a printed diff, a written file, or printed JSON. Errors/edges: an apply-time patch failure is non-destructive. Invariant: only `--apply` ever touches disk. Done-check: the four mode criteria. Fenced so each subcommand reuses one output contract.

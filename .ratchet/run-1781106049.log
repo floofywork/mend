@@ -24,3 +24,5 @@ Ratchet run — base branch `main`, stack `rust`
   [✓] test
   [✓] mutation
   ✓ done (diff c68334a0)
+
+── iteration 4: T-06.04  Dispatch output mode
