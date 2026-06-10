@@ -364,7 +364,7 @@ not_doing:
   - No token-level or semantic similarity.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The tolerant fallback when exact matching fails. Inputs: source text and search text; bounds: whitespace-insensitive line comparison with a fixed threshold. Outputs: a range and a similarity score, or no-match. Errors/edges: below-threshold candidates are rejected rather than forced. Invariant: any accepted match scores at or above the threshold. Done-check: the whitespace, scoring, and threshold criteria. Fenced so exact matching remains the first-choice path.
