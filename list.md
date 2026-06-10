@@ -198,8 +198,11 @@ criteria:
 not_doing:
   - No command-specific framing or instructions.
   - No Completer invocation.
-test_files: []
-criteria_map: {}
+test_files: [tests/context.rs]
+criteria_map:
+  C1: [c1_combines_structure_and_imports]
+  C2: [c2_assembled_context_within_budget]
+  C3: [c3_identical_inputs_are_byte_identical]
 attempts: 1
 last_failure: ""
 ---
