@@ -483,8 +483,12 @@ criteria:
 not_doing:
   - No command-specific prompt or parsing logic.
   - No backup/undo of overwritten files.
-test_files: []
-criteria_map: {}
+test_files: [tests/dispatch_output.rs]
+criteria_map:
+  C1: [c1_dry_run_prints_diff_and_leaves_file_unmodified]
+  C2: [c2_apply_writes_proposed_to_disk]
+  C3: [c3_json_prints_result_and_renders_no_diff]
+  C4: [c4_apply_patch_failure_writes_nothing_and_returns_patch]
 attempts: 1
 last_failure: ""
 ---
