@@ -9,9 +9,11 @@
 use std::fmt;
 
 pub mod cli;
+pub mod config;
 pub mod mock;
 
 pub use cli::{parse, Command};
+pub use config::Config;
 pub use mock::MockCompleter;
 
 /// The unified error type for the whole `mend` system.
