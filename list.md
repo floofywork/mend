@@ -464,7 +464,7 @@ not_doing:
   - No partial/streaming output.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The machine-readable output format. Inputs: path, original and proposed text, edits, and an applied flag; bounds: one JSON object. Outputs: a serialized JSON string. Errors/edges: round-trip parse equality guards the schema. Invariant: the JSON fully reconstructs the result struct. Done-check: the serialize, applied-flag, and round-trip criteria. Fenced from the human path so the two output modes evolve independently.
