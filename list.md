@@ -95,7 +95,7 @@ criteria:
 not_doing:
   - No network access of any kind.
   - No response templating or prompt-conditional logic.
-test_files: []
+test_files: [tests/mock_completer.rs]
 criteria_map: {}
 attempts: 1
 last_failure: ""
