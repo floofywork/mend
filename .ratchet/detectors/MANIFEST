@@ -1,2 +1,2 @@
-3c70cc066738fcc4e20cc36ef1ccc69ee4a9fc5ea8839fe7e30a1381155d446c  criteria_map:T-02.04
-9c7feb3d0e7cb414b64f45ad8ebd4055b35dc19a0ecf68df8a5aeabf56b87354  tests/context.rs
+0a02bac3b663e2987a55b905bea89ce912f1aeebd067474d941d1db6f6921943  criteria_map:T-03.01
+e2dfe2c50ffea00dce0739a48cdde8377bda514ab6fbabc13720cd3bc72cc70a  tests/prompt.rs
