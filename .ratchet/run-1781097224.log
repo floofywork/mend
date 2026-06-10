@@ -99,3 +99,5 @@ Ratchet run — base branch `main`, stack `rust`
   [✓] compile
   [✗] test
   ✗ failed at test
+
+── iteration 2: T-00.01  Scaffold Cargo binary crate
