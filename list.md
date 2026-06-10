@@ -324,7 +324,7 @@ not_doing:
   - No confidence scoring beyond fixed first-match precedence.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The dispatcher that picks a parser from a raw response. Inputs: an LLM response string; bounds: the three known formats. Outputs: a `Vec<ParsedEdit>` from the selected parser. Errors/edges: no recognizable format is a `Parse` error. Invariant: format selection follows a fixed precedence so identical responses always route identically. Done-check: the four routing criteria. Fenced to selection so each parser stays single-purpose.
