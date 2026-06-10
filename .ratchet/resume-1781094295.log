@@ -1,0 +1,20 @@
+Ratchet resume — run `run-1781049769515`
+  confirmed done:  18 (green re-derived from git + frozen hashes)
+  reopened:        0
+  restarted:       14 (mid-attempt; partial worktree discarded, never merged)
+    - T-00.01 → pending
+    - T-00.02 → pending
+    - T-00.03 → pending
+    - T-01.01 → pending
+    - T-01.02 → pending
+    - T-06.04 → pending (worktree discarded)
+    - T-07.01 → pending
+    - T-07.02 → pending
+    - T-07.03 → pending
+    - T-07.04 → pending
+    - T-07.05 → pending
+    - T-08.01 → pending
+    - T-08.02 → pending
+    - T-08.03 → pending
+
+↻ list.md reconciled — `ratchet run` will resume the 14 reopened/restarted task(s).

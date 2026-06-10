@@ -1,0 +1,4 @@
+  anti-cheat: unverified (no seeds for stack `rust` under $RATCHET_HOME)
+Ratchet run — base branch `main`, stack `rust`
+
+── iteration 1: T-00.01  Scaffold Cargo binary crate

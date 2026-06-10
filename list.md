@@ -1,7 +1,7 @@
 ### T-00.01  Scaffold Cargo binary crate
 id: T-00.01
 phase: 0
-status: done
+status: pending
 depends_on: []
 stack: rust
 criteria:
@@ -13,7 +13,7 @@ not_doing:
   - No dependency wiring beyond what the empty crate needs to build.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 2
 last_failure: ""
 ---
 The root surface every other task builds on. Inputs: none beyond a Cargo manifest; bounds: a buildable empty binary crate. Outputs: a compiling `mend` binary and a green empty test run. Errors/edges: a manifest that fails to parse is the only failure, surfaced by cargo itself. Invariant: the workspace always compiles from this point forward. Done-check: the three criteria observable via cargo. Kept deliberately inert so later modules attach without rework.
@@ -21,7 +21,7 @@ The root surface every other task builds on. Inputs: none beyond a Cargo manifes
 ### T-00.02  Define error type
 id: T-00.02
 phase: 0
-status: done
+status: pending
 depends_on: []
 stack: rust
 criteria:
@@ -42,7 +42,7 @@ A single error vocabulary so every deterministic layer surfaces failure uniforml
 ### T-00.03  Define CLI parser
 id: T-00.03
 phase: 0
-status: done
+status: pending
 depends_on: []
 stack: rust
 criteria:
@@ -64,7 +64,7 @@ The boundary that turns argv into a typed command. Inputs: process arguments; bo
 ### T-01.01  Define Completer trait
 id: T-01.01
 phase: 1
-status: done
+status: pending
 depends_on: [T-00.02]
 stack: rust
 criteria:
@@ -84,7 +84,7 @@ The single seam that isolates non-determinism. Inputs: a borrowed prompt string;
 ### T-01.02  Implement mock Completer
 id: T-01.02
 phase: 1
-status: done
+status: pending
 depends_on: [T-01.01]
 stack: rust
 criteria:
