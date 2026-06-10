@@ -32,7 +32,7 @@ criteria:
 not_doing:
   - No conversion impls for third-party error types beyond `std::io::Error`.
   - No per-subcommand error wrapping.
-test_files: []
+test_files: [tests/error.rs]
 criteria_map: {}
 attempts: 1
 last_failure: ""
