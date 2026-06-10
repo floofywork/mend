@@ -462,8 +462,11 @@ criteria:
 not_doing:
   - No colour or human-readable diff.
   - No partial/streaming output.
-test_files: []
-criteria_map: {}
+test_files: [tests/json_result.rs]
+criteria_map:
+  C1: [c1_serializes_path_original_proposed_and_edits]
+  C2: [c2_includes_applied_boolean]
+  C3: [c3_round_trips_to_same_structure]
 attempts: 1
 last_failure: ""
 ---
