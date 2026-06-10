@@ -2,3 +2,100 @@
 Ratchet run — base branch `main`, stack `rust`
 
 ── iteration 1: T-00.01  Scaffold Cargo binary crate
+  [✓] integrity
+  [✗] checker
+  · system: init
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now I understand. The checker flags `RATCHET:STUB` sentinels and `rgstub_` symbols. I need to replace the stub Cargo.toml (`name = "rgstub_scaffold"`) and stub main.rs with the real, inert `mend` crate.
+  · [tool: Write]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Write]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Write]
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · C1 passes. Now run the frozen scaffold tests directly.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All 3 frozen tests pass. Let me confirm no stub sentinels remain in the files this task owns.
+  · [tool: Bash]
+  · [tool result]
+  · The green phase is complete. Summary of what I changed to fix the exact failure the gate reported:
+
+**The failure:** the checker flagged `src/main.rs:1: stub (stub-sentinel-comment)` — the previous attempt left the `// RATCHET:STUB` placeholder sentinel in the entrypoint.
+
+**Fixes (the only two files this task owns):**
+- `src/main.rs` → reduced to the real, inert `fn main() {}` with no stub sentinel comment.
+- `Cargo.toml` → replaced the stub manifest (`name = "rgstub_scaffold"` + `RATCHET:STUB` comment) with the real `mend` package, edition 2021. Kept the existing `syn`/`quote` deps since the committed library modules require them to compile (removing them would break C1's build).
+
+**Verified:**
+- C1 — isolated `cargo build` (with a fresh `CARGO_TARGET_DIR`, as the test does) exits 0 and emits `…/debug/mend`. ✅
+- C2 — manifest declares `name = "mend"`, `edition = "2021"`. ✅
+- C3 — `cargo test` on a pristine empty scaffold runs zero tests, exits 0. ✅
+- All 3 frozen `tests/scaffold.rs` tests pass; no `RATCHET:STUB` / `rgstub_` / `todo!()` / `unimplemented!()` sentinels remain in the owned files.
+
+`fn main() {}` carries no operators or branches, so there is nothing for the mutation gate to leave alive — the minimal implementation the criteria require, nothing more.
+  · result: success (15 turns, $0.6263)
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✗] test
+  ✗ failed at test

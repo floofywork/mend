@@ -14,7 +14,77 @@ not_doing:
 test_files: []
 criteria_map: {}
 attempts: 1
-last_failure: ""
+last_failure: |
+  
+  running 0 tests
+  
+  test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+  
+  
+  running 0 tests
+  
+  test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+  
+  
+  running 3 tests
+  test c1_applies_ordered_edits_and_returns_new_text has been running for over 60 seconds
+  test c2_whole_file_replaces_entire_source has been running for over 60 seconds
+  test c3_conflict_or_no_match_aborts_with_patch_unchanged has been running for over 60 seconds
+  test c2_whole_file_replaces_entire_source ... ok
+  test c3_conflict_or_no_match_aborts_with_patch_unchanged ... ok
+  test c1_applies_ordered_edits_and_returns_new_text ... ok
+  
+  test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 67.87s
+  
+  
+  running 4 tests
+  test c1_output_estimate_within_budget has been running for over 60 seconds
+  test c2_fixed_deterministic_ratio has been running for over 60 seconds
+  test c3_truncation_appends_visible_marker has been running for over 60 seconds
+  test c4_zero_budget_yields_empty has been running for over 60 seconds
+  test c2_fixed_deterministic_ratio ... ok
+  test c4_zero_budget_yields_empty ... ok
+  test c3_truncation_appends_visible_marker ... ok
+  test c1_output_estimate_within_budget ... ok
+  
+  test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 82.18s
+  
+  
+  running 5 tests
+  test c1_explain_path_and_symbol_none has been running for over 60 seconds
+  test c2_explain_symbol_some has been running for over 60 seconds
+  test c3_edit_path_and_instruction has been running for over 60 seconds
+  test c4_apply_json_booleans_and_dryrun_default has been running for over 60 seconds
+  test c1_explain_path_and_symbol_none ... ok
+  test c2_explain_symbol_some ... ok
+  test c4_apply_json_booleans_and_dryrun_default ... ok
+  test c3_edit_path_and_instruction ... ok
+  test c5_unknown_subcommand_exits_nonzero_with_usage_on_stderr ... FAILED
+  
+  failures:
+  
+  ---- c5_unknown_subcommand_exits_nonzero_with_usage_on_stderr stdout ----
+  
+  thread 'c5_unknown_subcommand_exits_nonzero_with_usage_on_stderr' (1426856) panicked at tests/cli.rs:265:5:
+  an unknown subcommand must exit non-zero; stderr was:
+  
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+  
+  
+  failures:
+      c5_unknown_subcommand_exits_nonzero_with_usage_on_stderr
+  
+  test result: FAILED. 4 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 100.16s
+  
+  
+     Compiling mend v0.0.0 (/home/floofy/development/mend-build/.ratchet/worktrees/T-00.01)
+      Finished `test` profile [unoptimized + debuginfo] target(s) in 29.10s
+       Running unittests src/lib.rs (/home/floofy/development/mend-shared-target/debug/deps/mend-ad020f13afcbf5ca)
+       Running unittests src/main.rs (/home/floofy/development/mend-shared-target/debug/deps/mend-6443669fc2aaa1d1)
+       Running tests/apply.rs (/home/floofy/development/mend-shared-target/debug/deps/apply-fd77bea5f6d1bd10)
+       Running tests/budget.rs (/home/floofy/development/mend-shared-target/debug/deps/budget-e946510cb09d2ac6)
+       Running tests/cli.rs (/home/floofy/development/mend-shared-target/debug/deps/cli-9832a2cbe2fda456)
+  error: test failed, to rerun pass `--test cli`
 ---
 The root surface every other task builds on. Inputs: none beyond a Cargo manifest; bounds: a buildable empty binary crate. Outputs: a compiling `mend` binary and a green empty test run. Errors/edges: a manifest that fails to parse is the only failure, surfaced by cargo itself. Invariant: the workspace always compiles from this point forward. Done-check: the three criteria observable via cargo. Kept deliberately inert so later modules attach without rework.
 
