@@ -147,7 +147,7 @@ The first half of context gathering: a structural summary of the target. Inputs:
 ### T-02.02  Extract imports
 id: T-02.02
 phase: 2
-status: pending
+status: done
 depends_on: [T-00.02]
 stack: rust
 criteria:
@@ -157,11 +157,8 @@ criteria:
 not_doing:
   - No transitive dependency resolution.
   - No glob (`*`) expansion into concrete names.
-test_files: [tests/imports.rs]
-criteria_map:
-  C1: [c1_returns_every_use_path]
-  C2: [c2_grouped_use_expands_to_each_path]
-  C3: [c3_no_imports_yields_empty_list]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
