@@ -19,6 +19,7 @@ pub mod parsed_edit;
 pub mod prompt;
 pub mod search_replace;
 pub mod structure;
+pub mod unified_diff;
 
 pub use budget::budget;
 pub use context::assemble_context;
@@ -31,6 +32,7 @@ pub use parsed_edit::ParsedEdit;
 pub use prompt::{edit_prompt, explain_prompt, fix_prompt, test_prompt};
 pub use search_replace::parse_search_replace;
 pub use structure::extract_structure;
+pub use unified_diff::parse_unified_diff;
 
 /// The unified error type for the whole `mend` system.
 ///
