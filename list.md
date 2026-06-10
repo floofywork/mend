@@ -13,7 +13,7 @@ not_doing:
   - No dependency wiring beyond what the empty crate needs to build.
 test_files: []
 criteria_map: {}
-attempts: 2
+attempts: 3
 last_failure: ""
 ---
 The root surface every other task builds on. Inputs: none beyond a Cargo manifest; bounds: a buildable empty binary crate. Outputs: a compiling `mend` binary and a green empty test run. Errors/edges: a manifest that fails to parse is the only failure, surfaced by cargo itself. Invariant: the workspace always compiles from this point forward. Done-check: the three criteria observable via cargo. Kept deliberately inert so later modules attach without rework.

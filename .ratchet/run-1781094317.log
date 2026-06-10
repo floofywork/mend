@@ -2,3 +2,30 @@
 Ratchet run — base branch `main`, stack `rust`
 
 ── iteration 1: T-00.01  Scaffold Cargo binary crate
+  · system: init
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · This worktree has a surprising amount already present for a "scaffold" task. Let me understand the ratchet structure before doing anything.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
