@@ -384,7 +384,7 @@ not_doing:
   - No source mutation.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The validation pass that runs before any application. Inputs: source text and an ordered `Vec<ParsedEdit>`; bounds: overlap and post-application match checks. Outputs: a list of detected conflicts. Errors/edges: an empty list is the success signal. Invariant: an empty conflict list guarantees the edit set applies cleanly. Done-check: the overlap, stale-match, and clean-set criteria. Fenced from application so the applier can assume validated input.
