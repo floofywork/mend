@@ -1,0 +1,13 @@
+{
+  "commit": "023ea95908977c8d4a19fa2fa347a4c6adde99e3",
+  "gate": "mutation",
+  "passed": false,
+  "survivors": [
+    {
+      "file": "src/lib.rs",
+      "operator": "cmp-gt-to-ge",
+      "line": 5
+    }
+  ],
+  "opinion": "1 mutant(s) survived the frozen tests. These sites are under-pinned: the tests pass whether or not the operator is flipped. Prefer writing LESS implementation (exactly what the criteria require) — a survivor usually means the impl is richer than the frozen tests cover."
+}
