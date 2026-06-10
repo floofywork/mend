@@ -344,7 +344,7 @@ not_doing:
   - No mutation of the source.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The precise half of the matcher. Inputs: source text and an edit's search text; bounds: exact line-range equality. Outputs: a matched range, a no-match signal, or an ambiguity signal. Errors/edges: absence and multiplicity are signalled, not errored or panicked. Invariant: a returned range is byte-equal to the search text. Done-check: the unique-match, no-match, and ambiguity criteria. Fenced from fuzzy logic so each matcher is independently testable.
