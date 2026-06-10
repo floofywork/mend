@@ -76,7 +76,7 @@ not_doing:
   - No streaming or multi-turn conversation surface.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The single seam that isolates non-determinism. Inputs: a borrowed prompt string; bounds: one synchronous call returning a completion or a `MendError::Completer`. Outputs: the trait definition only. Errors/edges: all backend failure collapses into the `Result` return. Invariant: every layer above depends on this trait, never on a concrete backend, so tests stay deterministic. Done-check: object-safety and signature compile checks. Fenced to the abstraction; implementations are separate tasks.
