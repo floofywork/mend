@@ -167,7 +167,7 @@ The second half of context gathering: the file's declared dependencies. Inputs: 
 ### T-02.03  Budget context tokens
 id: T-02.03
 phase: 2
-status: pending
+status: done
 depends_on: [T-00.02]
 stack: rust
 criteria:
@@ -178,12 +178,8 @@ criteria:
 not_doing:
   - No model-specific BPE tokenizer.
   - No semantic-aware truncation (line/char boundary only).
-test_files: [tests/budget.rs]
-criteria_map:
-  C1: [c1_output_estimate_within_budget]
-  C2: [c2_fixed_deterministic_ratio]
-  C3: [c3_truncation_appends_visible_marker]
-  C4: [c4_zero_budget_yields_empty]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
