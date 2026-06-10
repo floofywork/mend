@@ -1,2 +1,4 @@
   anti-cheat: verified (detectors caught the planted seeds)
 Ratchet run — base branch `main`, stack `rust`
+
+── iteration 1: T-00.01  Scaffold Cargo binary crate
