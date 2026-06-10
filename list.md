@@ -180,7 +180,7 @@ not_doing:
   - No semantic-aware truncation (line/char boundary only).
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The mechanism that keeps prompts within the configured budget deterministically. Inputs: a text string and an integer budget; bounds: budget ≥ 0. Outputs: text guaranteed within the estimated budget, marked if cut. Errors/edges: zero budget yields empty; oversize input truncates. Invariant: estimated tokens of the output never exceed `n`. Done-check: the four criteria. Fenced to a deterministic heuristic so tests never depend on a real tokenizer.
