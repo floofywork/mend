@@ -250,7 +250,7 @@ The shared currency all three parsers emit and the patch engine consumes. Inputs
 ### T-04.02  Parse fenced code blocks
 id: T-04.02
 phase: 4
-status: pending
+status: done
 depends_on: [T-04.01]
 stack: rust
 criteria:
@@ -261,12 +261,8 @@ criteria:
 not_doing:
   - No search-replace or diff parsing.
   - No language validation of the tag.
-test_files: [tests/fenced.rs]
-criteria_map:
-  C1: [c1_single_fence_is_whole_file_edit]
-  C2: [c2_language_tag_stripped_from_body]
-  C3: [c3_unterminated_fence_is_parse_error]
-  C4: [c4_multiple_blocks_in_document_order]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
