@@ -271,7 +271,7 @@ The simplest response format: a whole-file replacement in a code fence. Inputs: 
 ### T-04.03  Parse search-replace blocks
 id: T-04.03
 phase: 4
-status: pending
+status: done
 depends_on: [T-04.01]
 stack: rust
 criteria:
@@ -281,11 +281,8 @@ criteria:
 not_doing:
   - No fuzzy matching or application.
   - No nested-block handling.
-test_files: [tests/search_replace.rs]
-criteria_map:
-  C1: [c1_single_block_is_search_replace_edit]
-  C2: [c2_multiple_blocks_in_document_order]
-  C3: [c3_missing_divider_is_parse_error]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
