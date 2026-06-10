@@ -84,7 +84,7 @@ The single seam that isolates non-determinism. Inputs: a borrowed prompt string;
 ### T-01.02  Implement mock Completer
 id: T-01.02
 phase: 1
-status: pending
+status: done
 depends_on: [T-01.01]
 stack: rust
 criteria:
