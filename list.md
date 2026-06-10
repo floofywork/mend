@@ -13,7 +13,7 @@ not_doing:
   - No dependency wiring beyond what the empty crate needs to build.
 test_files: []
 criteria_map: {}
-attempts: 2
+attempts: 3
 last_failure: |
   running 0 tests
   test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
