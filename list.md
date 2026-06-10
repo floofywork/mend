@@ -242,7 +242,7 @@ not_doing:
   - No patch application.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The shared currency all three parsers emit and the patch engine consumes. Inputs: none; a data definition. Outputs: the `ParsedEdit` type. Errors/edges: none at this layer; it is a value type. Invariant: every response format reduces to a `Vec<ParsedEdit>`. Done-check: the variant, collection, and derive criteria. Fenced to the model so parser and applier tasks share one contract.
