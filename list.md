@@ -164,7 +164,7 @@ criteria:
 not_doing:
   - No remote or per-command configuration sources.
   - No secret/credential management.
-test_files: []
+test_files: [tests/config.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -185,7 +185,7 @@ criteria:
 not_doing:
   - No non-Rust languages.
   - No body extraction; signatures only.
-test_files: []
+test_files: [tests/structure.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -205,7 +205,7 @@ criteria:
 not_doing:
   - No transitive dependency resolution.
   - No glob (`*`) expansion into concrete names.
-test_files: []
+test_files: [tests/imports.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -226,7 +226,7 @@ criteria:
 not_doing:
   - No model-specific BPE tokenizer.
   - No semantic-aware truncation (line/char boundary only).
-test_files: []
+test_files: [tests/budget.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -246,7 +246,7 @@ criteria:
 not_doing:
   - No command-specific framing or instructions.
   - No Completer invocation.
-test_files: []
+test_files: [tests/context.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -268,7 +268,7 @@ criteria:
 not_doing:
   - No Completer invocation.
   - No response parsing.
-test_files: []
+test_files: [tests/prompt.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -288,7 +288,7 @@ criteria:
 not_doing:
   - No parsing logic.
   - No patch application.
-test_files: []
+test_files: [tests/parsed_edit.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -309,7 +309,7 @@ criteria:
 not_doing:
   - No search-replace or diff parsing.
   - No language validation of the tag.
-test_files: []
+test_files: [tests/fenced.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -329,7 +329,7 @@ criteria:
 not_doing:
   - No fuzzy matching or application.
   - No nested-block handling.
-test_files: []
+test_files: [tests/search_replace.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -349,7 +349,7 @@ criteria:
 not_doing:
   - No multi-file diff headers.
   - No patch application.
-test_files: []
+test_files: [tests/unified_diff.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -370,7 +370,7 @@ criteria:
 not_doing:
   - No patch application.
   - No confidence scoring beyond fixed first-match precedence.
-test_files: []
+test_files: [tests/dispatch.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -390,7 +390,7 @@ criteria:
 not_doing:
   - No whitespace-tolerant or fuzzy matching.
   - No mutation of the source.
-test_files: []
+test_files: [tests/match_exact.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -410,7 +410,7 @@ criteria:
 not_doing:
   - No exact matching (delegates to T-05.01).
   - No token-level or semantic similarity.
-test_files: []
+test_files: [tests/match_fuzzy.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -430,7 +430,7 @@ criteria:
 not_doing:
   - No automatic conflict resolution.
   - No source mutation.
-test_files: []
+test_files: [tests/conflict.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -450,7 +450,7 @@ criteria:
 not_doing:
   - No disk writes.
   - No diff rendering.
-test_files: []
+test_files: [tests/apply.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -470,7 +470,7 @@ criteria:
 not_doing:
   - No colouring.
   - No file I/O.
-test_files: []
+test_files: [tests/compute_unified_diff.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -490,7 +490,7 @@ criteria:
 not_doing:
   - No diff computation (consumes T-06.01 output).
   - No paging or terminal-width wrapping.
-test_files: []
+test_files: [tests/render_diff.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
@@ -510,7 +510,7 @@ criteria:
 not_doing:
   - No colour or human-readable diff.
   - No partial/streaming output.
-test_files: []
+test_files: [tests/json_result.rs]
 criteria_map: {}
 attempts: 0
 last_failure: ""
