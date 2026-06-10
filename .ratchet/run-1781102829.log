@@ -10,3 +10,9 @@ Ratchet run — base branch `main`, stack `rust`
   ✓ done (diff aac8ad2c)
 
 ── iteration 2: T-00.02  Define error type
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff 794849e1)

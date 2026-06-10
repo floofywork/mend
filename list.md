@@ -21,7 +21,7 @@ The root surface every other task builds on. Inputs: none beyond a Cargo manifes
 ### T-00.02  Define error type
 id: T-00.02
 phase: 0
-status: pending
+status: done
 depends_on: []
 stack: rust
 criteria:
