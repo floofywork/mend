@@ -116,8 +116,12 @@ criteria:
 not_doing:
   - No remote or per-command configuration sources.
   - No secret/credential management.
-test_files: []
-criteria_map: {}
+test_files: [tests/config.rs]
+criteria_map:
+  C1: [c1_loads_fields_from_file]
+  C2: [c2_env_overrides_file]
+  C3: [c3_missing_file_yields_defaults]
+  C4: [c4_non_integer_budget_in_file_is_config_error, c4_non_integer_budget_in_env_is_config_error]
 attempts: 4
 last_failure: |
   surviving mutant at src/config.rs:120 (bool-or-to-and) — frozen tests do not kill it
