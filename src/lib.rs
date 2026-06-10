@@ -8,6 +8,7 @@
 
 use std::fmt;
 
+pub mod apply;
 pub mod budget;
 pub mod cli;
 pub mod config;
@@ -25,6 +26,7 @@ pub mod search_replace;
 pub mod structure;
 pub mod unified_diff;
 
+pub use apply::apply_edits;
 pub use budget::budget;
 pub use conflict::{detect_conflicts, Conflict};
 pub use context::assemble_context;
