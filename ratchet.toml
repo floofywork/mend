@@ -9,3 +9,14 @@ extra_args = ["--dangerously-skip-permissions"]
 [budget]
 max_attempts_per_task = 6
 max_iterations        = 400
+
+# GitHub connection (F7) — token supplied via the CI_TOKEN env var, never here.
+[github]
+repo = "floofywork/mend"
+
+# F8: offload the heavy mutation gate to a GitHub Actions runner. The verdict is
+# recomputed locally from the returned survivors + the trusted allow-list, and any
+# failure to obtain a commit-bound remote run falls back to running the gate
+# in-process — so this changes speed, never correctness.
+[remote_gates]
+enabled = true
