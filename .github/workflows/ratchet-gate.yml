@@ -66,6 +66,9 @@ jobs:
         run: |
           set -euo pipefail
           test -f report.json || { echo "no report.json produced"; exit 1; }
+          # git commit-tree needs an identity; CI runners have none configured.
+          git config user.email "ratchet-gate@users.noreply.github.com"
+          git config user.name "ratchet-gate"
           # Build an orphan commit containing only report.json (no working-tree
           # churn) and push it to the per-commit results ref Ratchet reads back.
           blob=$(git hash-object -w report.json)
