@@ -8,3 +8,5 @@ Ratchet run — base branch `main`, stack `rust`
   [✓] test
   [✓] mutation
   ✓ done (diff aac8ad2c)
+
+── iteration 2: T-00.02  Define error type
