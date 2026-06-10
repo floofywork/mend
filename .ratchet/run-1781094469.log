@@ -149,3 +149,5 @@ Note on context: this worktree was branched from `main` and therefore carries th
 COVERAGE: C1=c1_cargo_build_emits_mend_debug_binary; C2=c2_manifest_declares_mend_edition_2021_or_later; C3=c3_cargo_test_green_with_zero_tests_on_empty_scaffold
   · result: success (14 turns, $0.7941)
   ✗ failed at red
+
+── iteration 2: T-00.01  Scaffold Cargo binary crate
