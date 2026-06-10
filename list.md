@@ -54,7 +54,7 @@ criteria:
 not_doing:
   - No execution of any command; this only produces the parsed command struct.
   - No config or Completer construction.
-test_files: []
+test_files: [tests/cli.rs]
 criteria_map: {}
 attempts: 2
 last_failure: ""
