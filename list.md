@@ -422,8 +422,11 @@ criteria:
 not_doing:
   - No colouring.
   - No file I/O.
-test_files: []
-criteria_map: {}
+test_files: [tests/compute_unified_diff.rs]
+criteria_map:
+  C1: [c1_change_yields_hunk_header]
+  C2: [c2_unchanged_regions_elided_to_fixed_context]
+  C3: [c3_identical_inputs_yield_empty_diff]
 attempts: 1
 last_failure: ""
 ---
