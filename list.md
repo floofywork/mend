@@ -56,7 +56,7 @@ not_doing:
   - No config or Completer construction.
 test_files: []
 criteria_map: {}
-attempts: 1
+attempts: 2
 last_failure: ""
 ---
 The boundary that turns argv into a typed command. Inputs: process arguments; bounds: the four subcommands with their flags. Outputs: an enum of parsed commands carrying validated paths, optional symbol, instruction, error message, and output-mode flags. Errors/edges: unknown subcommand, missing positional, and mutually exclusive flag handling surface as a non-zero exit with usage. Invariant: a successfully parsed command is structurally complete for its variant. Done-check: the five parsing assertions. Scope fenced to parsing so dispatch stays a later concern.

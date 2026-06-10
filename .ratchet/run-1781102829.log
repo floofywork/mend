@@ -57,3 +57,8 @@ Ratchet run — base branch `main`, stack `rust`
   [✓] compile
   [✓] test
   [✓] mutation
+  ✗ failed at tamper
+  · report written: ./.ratchet/reports/run-1781102837679.md
+
+⚠ halted after 3 iterations: tamper at T-00.03: claimed Done carries a failed gate: test (a green cannot coexist with a failed gate)
+ratchet: config error: run halted: tamper at T-00.03: claimed Done carries a failed gate: test (a green cannot coexist with a failed gate)
