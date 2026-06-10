@@ -17,6 +17,7 @@ pub mod imports;
 pub mod mock;
 pub mod parsed_edit;
 pub mod prompt;
+pub mod search_replace;
 pub mod structure;
 
 pub use budget::budget;
@@ -28,6 +29,7 @@ pub use imports::extract_imports;
 pub use mock::MockCompleter;
 pub use parsed_edit::ParsedEdit;
 pub use prompt::{edit_prompt, explain_prompt, fix_prompt, test_prompt};
+pub use search_replace::parse_search_replace;
 pub use structure::extract_structure;
 
 /// The unified error type for the whole `mend` system.

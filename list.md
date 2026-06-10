@@ -281,8 +281,11 @@ criteria:
 not_doing:
   - No fuzzy matching or application.
   - No nested-block handling.
-test_files: []
-criteria_map: {}
+test_files: [tests/search_replace.rs]
+criteria_map:
+  C1: [c1_single_block_is_search_replace_edit]
+  C2: [c2_multiple_blocks_in_document_order]
+  C3: [c3_missing_divider_is_parse_error]
 attempts: 1
 last_failure: ""
 ---
