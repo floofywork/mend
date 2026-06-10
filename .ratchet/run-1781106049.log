@@ -316,3 +316,11 @@ COVERAGE: C1=c1_dry_run_prints_diff_and_leaves_file_unmodified; C2=c2_apply_writ
   [✓] test
   [✓] mutation
   ✓ done (diff 2cf751ff)
+
+── iteration 5: T-07.01  Run explain command
+  · report written: ./.ratchet/reports/run-1781106056281.md
+
+⚠ halted after 5 iterations: phase-boundary regression — refusing to advance to phase 7: an already-`done` task's frozen test now fails (CLAUDE.md rule 5):
+  - base regressed: `done` task's frozen test `tests/dispatch_output.rs` now FAILS against the base
+ratchet: config error: run halted: phase-boundary regression — refusing to advance to phase 7: an already-`done` task's frozen test now fails (CLAUDE.md rule 5):
+  - base regressed: `done` task's frozen test `tests/dispatch_output.rs` now FAILS against the base

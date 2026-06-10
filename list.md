@@ -505,7 +505,7 @@ not_doing:
   - No diff rendering.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The read-only subcommand. Inputs: a target path, optional symbol, config, and a Completer; bounds: produces text, never edits. Outputs: the model's explanation printed to stdout (or JSON). Errors/edges: a Completer failure surfaces as a non-zero exit. Invariant: explain leaves the target file untouched. Done-check: the gather/print, symbol-targeting, and error criteria. Fenced from the patch path because explanation has no edits.

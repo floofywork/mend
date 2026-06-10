@@ -2,3 +2,4 @@
 1	1781107400794	done	T-01.01 merged	c79a7a0602d680582575db3f7b9eed15329fac431ffdb3db375b975d267bb3a2	91bb1af2e91167985f03ad22a6cfabc84a39877b5430e925bf4df4e279da143a
 2	1781107516161	done	T-01.02 merged	91bb1af2e91167985f03ad22a6cfabc84a39877b5430e925bf4df4e279da143a	6a684abb8c052f54cc67b885727e29c592b716032d232183cd232c8a6aa4c42f
 3	1781109243064	done	T-06.04 merged	6a684abb8c052f54cc67b885727e29c592b716032d232183cd232c8a6aa4c42f	7bc42e21ac035af2e0bb247ace96fc71e7af6dc80dc1d3029801ab0420f36d66
+4	1781110028058	phase-boundary	phase-boundary regression — refusing to advance to phase 7: an already-`done` task's frozen test now fails (CLAUDE.md rule 5):\n  - base regressed: `done` task's frozen test `tests/dispatch_output.rs` now FAILS against the base	7bc42e21ac035af2e0bb247ace96fc71e7af6dc80dc1d3029801ab0420f36d66	bae22a91343b55239d3d75c16390086acbc251b630a31cbfc14609f380ed73c2
