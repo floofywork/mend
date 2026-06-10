@@ -311,7 +311,7 @@ The third response format: a unified diff. Inputs: an LLM response string; bound
 ### T-04.05  Detect response format
 id: T-04.05
 phase: 4
-status: pending
+status: done
 depends_on: [T-04.02, T-04.03, T-04.04]
 stack: rust
 criteria:
@@ -322,12 +322,8 @@ criteria:
 not_doing:
   - No patch application.
   - No confidence scoring beyond fixed first-match precedence.
-test_files: [tests/dispatch.rs]
-criteria_map:
-  C1: [c1_search_replace_marker_routes_to_search_replace]
-  C2: [c2_hunk_marker_routes_to_unified_diff]
-  C3: [c3_fenced_only_routes_to_fenced]
-  C4: [c4_unknown_format_is_parse_error]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
