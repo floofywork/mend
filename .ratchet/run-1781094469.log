@@ -2,3 +2,150 @@
 Ratchet run — base branch `main`, stack `rust`
 
 ── iteration 1: T-00.01  Scaffold Cargo binary crate
+  · system: init
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I now understand the ratchet structure. Let me look at the criteria_map format and verify the current build state, since this worktree was branched from `main` and already contains the full project.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The situation is now fully clear. Let me verify the test functions and confirm the file compiles structurally.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · ## RED phase — T-00.01 Scaffold Cargo binary crate
+
+I read `CLAUDE.md`, the ratchet journal, and the prior task history to ground my action. Findings:
+
+**The canonical RED-phase test file already exists and is correct.** `tests/scaffold.rs` is present at SHA‑256 `6d5afc1f…64840` — byte-for-byte the frozen artifact recorded in the journal (`run-1781046709299.jsonl`), where T‑00.01 attempt 1 passed **every** gate: `fail-right`, `criteria-coverage`, `integrity`, `checker`, `compile`, `test`, and `mutation`. I did **not** modify it — rewriting would change its hash and corrupt the frozen artifact for no benefit. I did **not** write any implementation.
+
+The three tests observe the criteria by shelling out to `cargo` exactly as a user would (std-only, `--offline`, isolated temp `CARGO_TARGET_DIR`):
+
+- **C1** `c1_cargo_build_emits_mend_debug_binary` — asserts `cargo build` exits 0 **and** that a binary literally named `mend` exists under `target/debug` (two distinct assertions; with no scaffold the build fails and the binary is absent → red).
+- **C2** `c2_manifest_declares_mend_edition_2021_or_later` — parses `[package]`, asserts `name == "mend"`, and asserts `edition` parses to a year with the boundary `year >= 2021` (pins the `>=` boundary at 2021; missing manifest panics → red).
+- **C3** `c3_cargo_test_green_with_zero_tests_on_empty_scaffold` — gates on the project already being the `mend` crate (red until the scaffold exists), then verifies a freshly generated pristine scaffold: `cargo test` exits 0 **and** emits `running 0 tests`.
+
+Each criterion is covered, and each comparison/branch the minimal scaffold implies is pinned on both sides (build success vs. binary presence; name equality; edition boundary; test success vs. zero-count), so operator mutants are killed.
+
+Note on context: this worktree was branched from `main` and therefore carries the full downstream project, so the scaffold implementation it depends on is already on disk — but the tests are written so they fail whenever the scaffold (`Cargo.toml` name=`mend` + buildable `main`) is absent, which is the RED contract. No frozen file was edited and no implementation was added.
+
+COVERAGE: C1=c1_cargo_build_emits_mend_debug_binary; C2=c2_manifest_declares_mend_edition_2021_or_later; C3=c3_cargo_test_green_with_zero_tests_on_empty_scaffold
+  · result: success (14 turns, $0.7941)
+  ✗ failed at red
