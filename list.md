@@ -42,7 +42,7 @@ A single error vocabulary so every deterministic layer surfaces failure uniforml
 ### T-00.03  Define CLI parser
 id: T-00.03
 phase: 0
-status: blocked
+status: pending
 depends_on: []
 stack: rust
 criteria:
