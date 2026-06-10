@@ -404,7 +404,7 @@ not_doing:
   - No diff rendering.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The engine that produces new file content from validated edits. Inputs: source text and an ordered edit list; bounds: non-conflicting, matchable edits. Outputs: the rewritten text. Errors/edges: any conflict or no-match aborts with `Patch` and an unchanged source (transactional). Invariant: application is all-or-nothing. Done-check: the apply, whole-file, and abort criteria. Fenced to in-memory transformation so I/O stays in the output layer.
