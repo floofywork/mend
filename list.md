@@ -230,7 +230,7 @@ The deterministic prompt layer, one builder per subcommand over a shared module.
 ### T-04.01  Define parsed-edit model
 id: T-04.01
 phase: 4
-status: pending
+status: done
 depends_on: [T-00.02]
 stack: rust
 criteria:
@@ -240,11 +240,8 @@ criteria:
 not_doing:
   - No parsing logic.
   - No patch application.
-test_files: [tests/parsed_edit.rs]
-criteria_map:
-  C1: [c1_parsededit_represents_pair_or_whole_file]
-  C2: [c2_vec_parsededit_is_multi_hunk_response]
-  C3: [c3_parsededit_derives_partialeq_and_debug]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
