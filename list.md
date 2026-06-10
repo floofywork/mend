@@ -157,8 +157,11 @@ criteria:
 not_doing:
   - No transitive dependency resolution.
   - No glob (`*`) expansion into concrete names.
-test_files: []
-criteria_map: {}
+test_files: [tests/imports.rs]
+criteria_map:
+  C1: [c1_returns_every_use_path]
+  C2: [c2_grouped_use_expands_to_each_path]
+  C3: [c3_no_imports_yields_empty_list]
 attempts: 1
 last_failure: ""
 ---
