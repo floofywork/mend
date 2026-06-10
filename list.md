@@ -303,7 +303,7 @@ not_doing:
   - No patch application.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The third response format: a unified diff. Inputs: an LLM response string; bounds: single-file `@@` hunks. Outputs: `ParsedEdit`s whose search side reconstructs the pre-image. Errors/edges: a malformed hunk header is a `Parse` error. Invariant: each hunk maps to one edit whose search and replace sides are derived solely from its lines. Done-check: the three criteria. Fenced to single-file diffs to keep the parser bounded.
