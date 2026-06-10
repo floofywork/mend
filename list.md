@@ -483,7 +483,7 @@ criteria:
 not_doing:
   - No command-specific prompt or parsing logic.
   - No backup/undo of overwritten files.
-test_files: []
+test_files: [tests/dispatch_output.rs]
 criteria_map: {}
 attempts: 1
 last_failure: ""
