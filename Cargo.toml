@@ -1,5 +1,9 @@
+# RATCHET:STUB — placeholder manifest so the frozen acceptance tests in
+# tests/scaffold.rs compile and FAIL during the red phase. The green phase
+# replaces this with the real `mend` package (name = "mend", edition 2021+).
+# This deliberately-wrong package name is what makes C1/C2/C3 red.
 [package]
-name = "mend"
+name = "rgstub_scaffold"
 version = "0.0.0"
 edition = "2021"
 
