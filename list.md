@@ -159,7 +159,7 @@ not_doing:
   - No glob (`*`) expansion into concrete names.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The second half of context gathering: the file's declared dependencies. Inputs: a Rust source string; bounds: `use` declarations only. Outputs: a flat list of fully-qualified import path strings. Errors/edges: no imports yields an empty list; grouped imports expand deterministically. Invariant: each returned string is a single concrete path. Done-check: the three criteria. Fenced away from resolution so it remains a pure syntactic pass.
