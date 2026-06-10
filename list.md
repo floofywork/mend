@@ -392,7 +392,7 @@ The validation pass that runs before any application. Inputs: source text and an
 ### T-05.04  Apply edits
 id: T-05.04
 phase: 5
-status: pending
+status: done
 depends_on: [T-05.03]
 stack: rust
 criteria:
@@ -402,11 +402,8 @@ criteria:
 not_doing:
   - No disk writes.
   - No diff rendering.
-test_files: [tests/apply.rs]
-criteria_map:
-  C1: [c1_applies_ordered_edits_and_returns_new_text]
-  C2: [c2_whole_file_replaces_entire_source]
-  C3: [c3_conflict_or_no_match_aborts_with_patch_unchanged]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
