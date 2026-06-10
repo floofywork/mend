@@ -14,6 +14,7 @@ pub mod config;
 pub mod context;
 pub mod imports;
 pub mod mock;
+pub mod parsed_edit;
 pub mod prompt;
 pub mod structure;
 
@@ -23,6 +24,7 @@ pub use cli::{parse, Command};
 pub use config::Config;
 pub use imports::extract_imports;
 pub use mock::MockCompleter;
+pub use parsed_edit::ParsedEdit;
 pub use prompt::{edit_prompt, explain_prompt, fix_prompt, test_prompt};
 pub use structure::extract_structure;
 

@@ -240,8 +240,11 @@ criteria:
 not_doing:
   - No parsing logic.
   - No patch application.
-test_files: []
-criteria_map: {}
+test_files: [tests/parsed_edit.rs]
+criteria_map:
+  C1: [c1_parsededit_represents_pair_or_whole_file]
+  C2: [c2_vec_parsededit_is_multi_hunk_response]
+  C3: [c3_parsededit_derives_partialeq_and_debug]
 attempts: 1
 last_failure: ""
 ---
