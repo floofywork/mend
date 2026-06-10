@@ -382,8 +382,11 @@ criteria:
 not_doing:
   - No automatic conflict resolution.
   - No source mutation.
-test_files: []
-criteria_map: {}
+test_files: [tests/conflict.rs]
+criteria_map:
+  C1: [c1_overlapping_ranges_are_flagged]
+  C2: [c2_stale_match_after_prior_edit_is_flagged]
+  C3: [c3_clean_set_returns_empty_list]
 attempts: 1
 last_failure: ""
 ---
