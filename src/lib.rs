@@ -11,6 +11,7 @@ use std::fmt;
 pub mod budget;
 pub mod cli;
 pub mod config;
+pub mod conflict;
 pub mod context;
 pub mod dispatch;
 pub mod fenced;
@@ -25,6 +26,7 @@ pub mod structure;
 pub mod unified_diff;
 
 pub use budget::budget;
+pub use conflict::{detect_conflicts, Conflict};
 pub use context::assemble_context;
 pub use cli::{parse, Command};
 pub use config::Config;
