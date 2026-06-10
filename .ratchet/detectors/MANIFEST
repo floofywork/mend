@@ -1,2 +1,2 @@
-51f415e45287bf5e53fcc6aa962272d8b935ac7e957f407c5edc91c23c9adfea  criteria_map:T-04.01
-d6c5ccc57fe509f31bab40063e5476506546ffaded7fc7fce18f81d300e8b91f  tests/parsed_edit.rs
+56b1b45648ad24dc3c373becbcdf25b299ad69fec5aebf283c35561bbb24b410  criteria_map:T-04.02
+91faaf3a8d65c446b764b7960738f01033296b26bd1cb23d0dd849a4c1c19c17  tests/fenced.rs
