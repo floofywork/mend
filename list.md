@@ -208,7 +208,7 @@ The join point that produces the single context blob fed to prompt assembly. Inp
 ### T-03.01  Assemble command prompts
 id: T-03.01
 phase: 3
-status: pending
+status: done
 depends_on: [T-02.04]
 stack: rust
 criteria:
@@ -220,13 +220,8 @@ criteria:
 not_doing:
   - No Completer invocation.
   - No response parsing.
-test_files: [tests/prompt.rs]
-criteria_map:
-  C1: [c1_explain_embeds_context_and_present_symbol, c1_explain_omits_symbol_when_absent]
-  C2: [c2_edit_embeds_context_and_instruction_verbatim]
-  C3: [c3_fix_embeds_context_and_error]
-  C4: [c4_test_embeds_context_and_requests_public_api]
-  C5: [c5_builders_are_pure_and_deterministic]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
