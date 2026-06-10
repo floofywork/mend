@@ -11,11 +11,13 @@ use std::fmt;
 pub mod budget;
 pub mod cli;
 pub mod config;
+pub mod context;
 pub mod imports;
 pub mod mock;
 pub mod structure;
 
 pub use budget::budget;
+pub use context::assemble_context;
 pub use cli::{parse, Command};
 pub use config::Config;
 pub use imports::extract_imports;
