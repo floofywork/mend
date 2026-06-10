@@ -139,7 +139,7 @@ not_doing:
   - No body extraction; signatures only.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The first half of context gathering: a structural summary of the target. Inputs: a Rust source string; bounds: top-level public item signatures. Outputs: an ordered list of signature strings. Errors/edges: empty input is valid and empty; unparseable input is a `Parse` error caught before it can panic. Invariant: only the public API surface is ever included. Done-check: the four extraction criteria. Fenced to one language and to signatures so the task stays small.
