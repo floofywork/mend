@@ -424,7 +424,7 @@ not_doing:
   - No file I/O.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The diff computation feeding both human and JSON output. Inputs: old and new text; bounds: single-file unified format. Outputs: a unified diff string. Errors/edges: identical inputs yield an empty diff (no spurious hunks). Invariant: applying the diff to old reproduces new. Done-check: the header, elision, and empty-diff criteria. Fenced from colour and I/O so it stays a pure function.
