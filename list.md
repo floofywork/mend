@@ -222,7 +222,7 @@ not_doing:
   - No response parsing.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The deterministic prompt layer, one builder per subcommand over a shared module. Inputs: the assembled context plus per-command parameters (symbol, instruction, error, none); bounds: each builder is total over its inputs. Outputs: four prompt strings. Errors/edges: absent optional inputs (symbol, error) are handled by omission, not error. Invariant: every builder is referentially transparent. Done-check: the five embedding/purity criteria. Fenced to construction so the LLM round-trip stays in the command tasks.
