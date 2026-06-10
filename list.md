@@ -11,7 +11,7 @@ criteria:
 not_doing:
   - No CLI parsing, subcommand, or business logic.
   - No dependency wiring beyond what the empty crate needs to build.
-test_files: []
+test_files: [tests/scaffold.rs]
 criteria_map: {}
 attempts: 4
 last_failure: ""
