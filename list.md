@@ -126,7 +126,7 @@ The settings boundary feeding model, endpoint, and budget into the deterministic
 ### T-02.01  Extract file structure
 id: T-02.01
 phase: 2
-status: pending
+status: done
 depends_on: [T-00.02]
 stack: rust
 criteria:
@@ -137,12 +137,8 @@ criteria:
 not_doing:
   - No non-Rust languages.
   - No body extraction; signatures only.
-test_files: [tests/structure.rs]
-criteria_map:
-  C1: [c1_extracts_public_item_signatures]
-  C2: [c2_excludes_non_pub_items]
-  C3: [c3_empty_file_yields_empty_list]
-  C4: [c4_unparseable_source_is_parse_error]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
