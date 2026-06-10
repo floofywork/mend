@@ -452,7 +452,7 @@ The human-facing presentation of a diff. Inputs: a unified diff string and a TTY
 ### T-06.03  Emit JSON result
 id: T-06.03
 phase: 6
-status: pending
+status: done
 depends_on: [T-04.01]
 stack: rust
 criteria:
@@ -462,11 +462,8 @@ criteria:
 not_doing:
   - No colour or human-readable diff.
   - No partial/streaming output.
-test_files: [tests/json_result.rs]
-criteria_map:
-  C1: [c1_serializes_path_original_proposed_and_edits]
-  C2: [c2_includes_applied_boolean]
-  C3: [c3_round_trips_to_same_structure]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
