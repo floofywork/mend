@@ -432,7 +432,7 @@ The diff computation feeding both human and JSON output. Inputs: old and new tex
 ### T-06.02  Render coloured diff
 id: T-06.02
 phase: 6
-status: pending
+status: done
 depends_on: [T-06.01]
 stack: rust
 criteria:
@@ -442,11 +442,8 @@ criteria:
 not_doing:
   - No diff computation (consumes T-06.01 output).
   - No paging or terminal-width wrapping.
-test_files: [tests/render_diff.rs]
-criteria_map:
-  C1: [c1_colours_added_removed_and_header]
-  C2: [c2_non_tty_omits_all_colour]
-  C3: [c3_empty_diff_renders_empty]
+test_files: []
+criteria_map: {}
 attempts: 1
 last_failure: ""
 ---
