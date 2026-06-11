@@ -551,7 +551,7 @@ not_doing:
   - No test generation.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The repair subcommand. Inputs: a path, an optional error message, config, and a Completer; bounds: one round-trip producing edits. Outputs: edits routed through dispatch. Errors/edges: a missing error message degrades to inference, not failure. Invariant: edits flow through the same output contract as edit. Done-check: the with-error, without-error, and routing criteria. Fenced from auto-detecting the error so the command needs no compiler.
