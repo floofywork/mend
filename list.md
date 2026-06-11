@@ -668,7 +668,7 @@ not_doing:
   - No credential provisioning or secret storage.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The feature-gated manual integration check. Inputs: a real endpoint reachable only when the feature is on; bounds: a single manually-run test. Outputs: a pass/fail against a live model. Errors/edges: by default the test does not compile into the suite, keeping `cargo test` network-free. Invariant: default test runs never touch the network. Done-check: the gated-test, default-exclusion, and feature-declaration criteria. Fenced from CI and secrets, which are out of scope for the build.

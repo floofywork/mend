@@ -2914,3 +2914,5 @@ All 8 frozen probes pass honestly against real loopback HTTP exchanges. I left `
   [✓] test
   [✓] mutation
   ✓ done (diff 71f721c8)
+
+── iteration 8: T-08.03  Gate live integration test
