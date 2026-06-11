@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: build & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+
+      # The real bar: it compiles and every test passes. mend's integration
+      # tests are "probes" that spawn `cargo` subprocesses, so they must run
+      # SERIALLY — under parallel test threads they contend on the build lock
+      # and flake.
+      - name: Build
+        run: cargo build --verbose
+      - name: Test (serial — probe tests spawn cargo)
+        run: cargo test --verbose -- --test-threads=1
+
+      # Informational only. mend was built test-first by Ratchet against the
+      # compiler + frozen tests + mutation gate; rustfmt/clippy were not part of
+      # that contract, and the frozen test files cannot be reformatted without
+      # breaking the recorded-hash audit chain. So these surface style without
+      # gating the build.
+      - name: Format (informational)
+        run: cargo fmt --all --check
+        continue-on-error: true
+      - name: Clippy (informational)
+        run: cargo clippy --all-targets
+        continue-on-error: true

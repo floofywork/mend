@@ -3176,3 +3176,6 @@ The implementation adds no `src/` logic and the gated test body has no compariso
   [✓] test
   [✓] mutation
   ✓ done (diff 7181fbb6)
+  · report written: ./.ratchet/reports/run-1781139102098.md
+
+✓ complete: 32 tasks done in 9 iterations

@@ -1,3 +1,4 @@
 {"run_id":"run-1781046709299","cost":8.587449749999998,"tasks_done":5,"tasks_escalated":0,"attempts":{"2":5},"gate_failures":{"mutation":3},"gate_failures_by_stack":{"rust":{"mutation":3}},"wall_clock_secs":2367}
 {"run_id":"run-1781102837679","cost":0.53071175,"tasks_done":2,"tasks_escalated":0,"attempts":{"2":1,"5":1},"gate_failures":{"test":1},"gate_failures_by_stack":{"rust":{"test":1}},"wall_clock_secs":433}
 {"run_id":"run-1781106056281","cost":2.29540175,"tasks_done":4,"tasks_escalated":0,"attempts":{"2":3,"3":1},"gate_failures":{},"gate_failures_by_stack":{},"wall_clock_secs":1940}
+{"run_id":"run-1781139102098","cost":25.002800750000006,"tasks_done":8,"tasks_escalated":0,"attempts":{"2":7,"3":1},"gate_failures":{},"gate_failures_by_stack":{},"wall_clock_secs":18740}
