@@ -11,7 +11,7 @@
 //! unhandled [`Command`] variant is a compile error rather than a silent
 //! fall-through. Handler logic itself lives in the handler modules, not here.
 
-use crate::cli::Command;
+use crate::cli::{parse, Command};
 use crate::dispatch_output::OutputMode;
 use crate::edit::run_edit;
 use crate::explain::run_explain;
@@ -77,4 +77,16 @@ pub fn run(command: Command, config: &Config, completer: &dyn Completer) -> Resu
         }
         Command::Usage { message } => Err(MendError::Config(message)),
     }
+}
+
+/// The assembled CLI entry point: from a raw argument vector to a result.
+///
+/// Composes the two already-verified layers — it [`parse`]s `args` (argv without
+/// the program name) into a [`Command`] and [`run`]s that command with the given
+/// `config` and `completer`. This is the single seam tests drive with a
+/// [`MockCompleter`](crate::MockCompleter) and production drives with a real
+/// backend, so the whole parse → dispatch → handler → output flow runs through
+/// one call without the binary's process shell.
+pub fn run_cli(args: &[String], config: &Config, completer: &dyn Completer) -> Result<String> {
+    run(parse(args), config, completer)
 }
