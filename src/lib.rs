@@ -30,6 +30,7 @@ pub mod prompt;
 pub mod render_diff;
 pub mod search_replace;
 pub mod structure;
+pub mod test_cmd;
 pub mod unified_diff;
 
 pub use apply::apply_edits;
@@ -54,6 +55,7 @@ pub use prompt::{edit_prompt, explain_prompt, fix_prompt, test_prompt};
 pub use render_diff::render_diff;
 pub use search_replace::parse_search_replace;
 pub use structure::extract_structure;
+pub use test_cmd::run_test;
 pub use unified_diff::{compute_unified_diff, parse_unified_diff};
 
 /// The unified error type for the whole `mend` system.
