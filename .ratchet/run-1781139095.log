@@ -1956,3 +1956,5 @@ I did not touch any frozen file (`tests/route.rs`, the MANIFEST). The `M list.md
   [✓] test
   [✓] mutation
   ✓ done (diff e4411c16)
+
+── iteration 6: T-08.01  Drive mock end-to-end tests

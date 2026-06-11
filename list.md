@@ -621,7 +621,7 @@ not_doing:
   - No subcommand left without at least one end-to-end test.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The full-stack determinism guarantee. Inputs: scripted MockCompleter responses driving the assembled CLI; bounds: the three output modes. Outputs: assertions over disk, stdout diff, and JSON. Errors/edges: the no-network criterion fences out non-determinism. Invariant: every run is reproducible from the script. Done-check: the apply, dry-run, json, and no-network criteria. This is the acceptance gate proving the deterministic layers compose correctly.
