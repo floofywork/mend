@@ -608,7 +608,7 @@ The top-level wiring from parsed command to handler. Inputs: a parsed command, l
 ### T-08.01  Drive mock end-to-end tests
 id: T-08.01
 phase: 8
-status: pending
+status: done
 depends_on: [T-07.05, T-01.02]
 stack: rust
 criteria:
@@ -619,8 +619,12 @@ criteria:
 not_doing:
   - No real LLM calls.
   - No subcommand left without at least one end-to-end test.
-test_files: []
-criteria_map: {}
+test_files: [tests/e2e.rs]
+criteria_map:
+  C1: [c1_edit_apply_writes_disk]
+  C2: [c2_edit_dryrun_unchanged_emits_diff]
+  C3: [c3_edit_json_matches_expected_structure]
+  C4: [c4_no_network_mockcompleter_serves_run]
 attempts: 1
 last_failure: ""
 ---

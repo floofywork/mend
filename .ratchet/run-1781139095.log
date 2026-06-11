@@ -1958,3 +1958,581 @@ I did not touch any frozen file (`tests/route.rs`, the MANIFEST). The `M list.md
   ✓ done (diff e4411c16)
 
 ── iteration 6: T-08.01  Drive mock end-to-end tests
+  · system: init
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · Let me read the files directly instead.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have the probe idiom down. Now let me understand phase 8's intent and how the binary is meant to be driven. Let me check plan.md and the existing binary-invoking tests.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The parser only handles explain/edit; fix/test are dispatched via constructed `Command`s. Let me verify the frozen "unknown subcommand" test won't conflict with extending parse, and check the error type Display.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me read the rest of test_cmd.rs and parse_fenced to nail down exact behaviors for assertions.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I now have a complete picture. The design: T-08.01 introduces `mend::run_cli(args, config, completer)` — the assembled CLI entry point (parse argv → dispatch via `run`) — and extends the parser to reach all four subcommands. Every e2e test drives `run_cli` from argv with a `MockCompleter`, so all are RED until `run_cli` exists, all network-free by construction. I'll follow the established probe-subcrate idiom (so the test file itself compiles; redness is the probe failing to build).
+
+Let me write the test file.
+  · [tool: Write]
+  · [tool result]
+  · Now let me verify the test file compiles (it must, per RED rules) and that the probes fail (RED) because `run_cli` doesn't exist yet.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · The test crate compiles. Now let me confirm the tests actually FAIL in the red state (probes fail to build because `run_cli` doesn't exist). I'll run one representative test plus a fix one (which also needs parser routing).
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · RED confirmed: the test file **compiles**, and the probe **fails to build** because `mend::run_cli` does not exist yet — exactly the established redness mechanism in this repo. The other tests fail identically (and the `fix`/`test` ones additionally need parser routing, also absent).
+
+## Summary
+
+I wrote `tests/e2e.rs` — the full-stack acceptance gate for T-08.01. It follows the repo's frozen probe idiom: the outer test crate is std-only and always compiles; each test compiles and runs a tiny probe crate against the real `mend` library, driving the **assembled CLI** with a scripted `MockCompleter`. Redness comes from the probe failing to build (no `run_cli`, no `fix`/`test` argv routing).
+
+**Contract pinned for GREEN** (documented in the module header): a single assembled entry point
+```rust
+fn run_cli(args: &[String], config: &mend::Config, completer: &dyn mend::Completer) -> mend::Result<String>
+```
+composing the verified layers as `run(parse(args), config, completer)`, plus minimal parser routing so all four subcommands are reachable from argv.
+
+**Criteria coverage:**
+- **C1** — `edit --apply` writes the applied text to disk (and returns it), file genuinely changed, exactly one completion requested.
+- **C2** — default dry-run leaves the file byte-for-byte unchanged and emits a diff (non-empty, not JSON, shows the proposed body, equal to `dispatch_output(..DryRun..)`).
+- **C3** — `--json` emits JSON exactly matching a rebuilt `JsonResult` (path/original/proposed/edits/`applied:false`), round-trips, writes nothing.
+- **C4** — run succeeds against a deliberately unroutable endpoint, served solely by the in-process mock (one prompt recorded, second response left unconsumed) — a deterministic proof of no network I/O.
+
+Each criterion pins both sides of its boundary (apply vs. unchanged; diff vs. JSON) for the mutation gate. The out-of-scope "no subcommand left without an end-to-end test" is also satisfied: `explain`, `edit`, `fix` (apply+dry-run), and `test` (apply+dry-run) each have argv-driven e2e tests, all network-free.
+
+COVERAGE: C1=c1_edit_apply_writes_disk; C2=c2_edit_dryrun_unchanged_emits_diff; C3=c3_edit_json_matches_expected_structure; C4=c4_no_network_mockcompleter_serves_run
+  · result: success (24 turns, $2.6547)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · I'll start by reading the project documents and the frozen tests to understand what I need to implement.
+  · [tool: Bash]
+  · [tool result]
+  · This is a Rust project. Let me explore the structure and read the key files.
+  · [tool: Bash]
+  · [tool result]
+  · The frozen test is `tests/e2e.rs`. Let me read it along with the main source files it depends on.
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now let me read the key source files to understand the existing structure.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The parser needs `fix` and `test` routing added, and I need a `run_cli` function. Let me check existing cli/route tests to avoid breaking them, and read the remaining handlers.
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now let me read the handlers and dispatch_output, plus check route tests for how fix/test parsing is expected.
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The `run` function already routes all four commands. I need to: (1) add `fix`/`test` routing to `cli::parse`, and (2) add `run_cli`. Let me check the mutation/detector config to understand what gets mutated.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · Now let me check the route tests, main.rs, and mock to understand existing expectations.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The route tests construct commands directly, so they don't constrain parse. Let me check the mutation operators used by checking reports and a prior implementation.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The previous task confirmed boolean literals aren't mutated (the `color: false` literal survived ungated). Now I understand the structure: I need to add `fix`/`test` routing to `cli::parse` and add `run_cli`. Let me make the changes.
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · Now add `run_cli` to route.rs:
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · Now let me build and run the e2e tests.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · The e2e tests are slow (each probe spawns a full cargo build). Let me wait for completion.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · The test is still running. Let me wait for it to finish.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · system: task_notification
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · All 9 e2e tests pass. Now let me verify I haven't broken other test suites — particularly `cli` and `route`.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Both pass. Let me confirm all test crates still compile cleanly.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All compiles cleanly with no warnings. Let me review the final diff.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The implementation is complete and all frozen tests pass honestly. Here's a summary of **T-08.01 — Drive mock end-to-end tests (GREEN)**:
+
+## What I added
+
+The frozen `tests/e2e.rs` required two things the codebase lacked: the assembled CLI entry point `mend::run_cli`, and parser routing for the `fix`/`test` subcommands from argv.
+
+1. **`src/route.rs`** — added the assembled entry point:
+   ```rust
+   pub fn run_cli(args, config, completer) -> Result<String> {
+       run(parse(args), config, completer)
+   }
+   ```
+   It composes the two already-verified layers (`parse` → `run`), exactly as the test docstring specifies.
+
+2. **`src/cli.rs`** — routed two more subcommands in `parse` and added `parse_fix`/`parse_test`, mirroring `parse_edit`'s flag handling. `fix` parses `<path> [--apply] [--json]` with `error: None` (no `--error` in the e2e grammar); `test` parses `<path> [--apply] [--json]`.
+
+3. **`src/lib.rs`** — re-exported `run_cli`.
+
+The four output-routing handlers (`run_explain`/`run_edit`/`run_fix`/`run_test`) and `run`'s exhaustive dispatch already existed from T-07.x, so this task is genuinely just the final wiring.
+
+## Verification (raw outcomes)
+- `cargo build` — clean.
+- `cargo test --test e2e` — **9 passed; 0 failed** (158s — each probe spawns a real isolated cargo build):
+  - C1 `c1_edit_apply_writes_disk`, C2 `c2_edit_dryrun_unchanged_emits_diff`, C3 `c3_edit_json_matches_expected_structure`, C4 `c4_no_network_mockcompleter_serves_run`, plus the four `explain`/`fix`/`test` coverage probes — no subcommand left untested (C4's no-network is proven by success against a bogus endpoint with the in-process mock serving the call).
+- `cargo test --test cli` — 5 passed; `cargo test --test route` — 8 passed (the new parser arms break neither).
+- `cargo build --tests` — all test crates compile, no warnings; `mend` binary builds.
+
+## Mutation notes
+My additions contain no mutable operators (`==`/`>=`/`&&`/`+` …) — the parsers are `match`-based and `run_cli` is pure composition. The `--apply` boolean is pinned on both sides by the apply-vs-dry-run e2e pairs for every mutating subcommand. No frozen file (`tests/e2e.rs`, MANIFEST) was touched; the `M list.md` is the red-phase `criteria_map` freeze from session start.
+  · result: success (28 turns, $1.7047)
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff 29007e97)
