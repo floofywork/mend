@@ -12,7 +12,7 @@ max_iterations        = 400
 
 # GitHub connection (F7) — token supplied via the CI_TOKEN env var, never here.
 [github]
-repo = "floofywork/mend"
+repo = "voldiguarddevelopment/mend"
 
 # F8: offload the heavy mutation gate to a GitHub Actions runner. The verdict is
 # recomputed locally from the returned survivors + the trusted allow-list, and any

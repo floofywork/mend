@@ -86,7 +86,7 @@ jobs:
           shared-key: ratchet-regression
 
       - name: Install ratchet
-        run: cargo install --git https://github.com/floofywork/Ratchet --locked ratchet
+        run: cargo install --git https://github.com/voldiguarddevelopment/Ratchet --locked ratchet
 
       # Run the ONE stem. `continue-on-error` so the report is ALWAYS published
       # even when the stem fails (exit 1) or could not run (exit 3); the verdict

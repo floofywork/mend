@@ -8,12 +8,12 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
   <img src="https://img.shields.io/badge/rust-2021%20edition-orange.svg" alt="Rust 2021">
-  <a href="https://github.com/floofywork/Ratchet"><img src="https://img.shields.io/badge/built%20by-Ratchet%20%F0%9F%A6%8A-2bbac5.svg" alt="Built by Ratchet"></a>
+  <a href="https://github.com/voldiguarddevelopment/Ratchet"><img src="https://img.shields.io/badge/built%20by-Ratchet%20%F0%9F%A6%8A-2bbac5.svg" alt="Built by Ratchet"></a>
 </p>
 
 ---
 
-> ### 🤖 This repository was built autonomously, test-first, by [**Ratchet**](https://github.com/floofywork/Ratchet).
+> ### 🤖 This repository was built autonomously, test-first, by [**Ratchet**](https://github.com/voldiguarddevelopment/Ratchet).
 >
 > Every line of `mend`'s source was written by an AI agent driven through a hardened
 > Ralph-Wiggum loop — one task at a time, **tests frozen before the implementation**,
@@ -98,7 +98,7 @@ Ratchet could build this autonomously and *prove* it correct.
 ## Install
 
 ```sh
-git clone https://github.com/floofywork/mend.git && cd mend
+git clone https://github.com/voldiguarddevelopment/mend.git && cd mend
 cargo build --release
 install -m755 target/release/mend ~/.local/bin/mend   # or anywhere on PATH
 
@@ -135,7 +135,7 @@ the only acceptable definition of "done."
 
 ## Built by Ratchet
 
-[Ratchet](https://github.com/floofywork/Ratchet) is a TUI harness that drives
+[Ratchet](https://github.com/voldiguarddevelopment/Ratchet) is a TUI harness that drives
 `claude` CLI agents to build software autonomously, test-first, with deterministic
 gates that make a faked pass impossible. It built `mend` end to end:
 

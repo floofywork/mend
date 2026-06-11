@@ -49,7 +49,7 @@ jobs:
           shared-key: ratchet-gate
 
       - name: Install ratchet
-        run: cargo install --git https://github.com/floofywork/Ratchet --locked ratchet
+        run: cargo install --git https://github.com/voldiguarddevelopment/Ratchet --locked ratchet
 
       # Run the gate. It exits 1 when a mutant survives; we capture that AFTER
       # publishing the report so the report is always available to Ratchet, then
