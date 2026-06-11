@@ -102,6 +102,8 @@ pub fn parse(args: &[String]) -> Command {
     match sub {
         "explain" => parse_explain(rest),
         "edit" => parse_edit(rest),
+        "fix" => parse_fix(rest),
+        "test" => parse_test(rest),
         other => usage(&format!("unknown subcommand `{other}`")),
     }
 }
@@ -173,6 +175,72 @@ fn parse_edit(args: &[String]) -> Command {
         },
         (None, _) => usage("`edit` requires a <path>"),
         (Some(_), None) => usage("`edit` requires an <instruction>"),
+    }
+}
+
+/// Parse the arguments to `fix`: one positional `<path>` plus the boolean flags
+/// `--apply` and `--json`. No error message is parsed from argv, so `error`
+/// defaults to `None` and the handler infers the defect from the file.
+fn parse_fix(args: &[String]) -> Command {
+    let mut path: Option<PathBuf> = None;
+    let mut apply = false;
+    let mut json = false;
+
+    for arg in args {
+        match arg.as_str() {
+            "--apply" => apply = true,
+            "--json" => json = true,
+            flag if flag.starts_with("--") => {
+                return usage(&format!("unknown flag `{flag}` for `fix`"));
+            }
+            positional => {
+                if path.is_none() {
+                    path = Some(PathBuf::from(positional));
+                } else {
+                    return usage(&format!("unexpected argument `{positional}` for `fix`"));
+                }
+            }
+        }
+    }
+
+    match path {
+        Some(path) => Command::Fix {
+            path,
+            error: None,
+            apply,
+            json,
+        },
+        None => usage("`fix` requires a <path>"),
+    }
+}
+
+/// Parse the arguments to `test`: one positional `<path>` plus the boolean flags
+/// `--apply` and `--json`.
+fn parse_test(args: &[String]) -> Command {
+    let mut path: Option<PathBuf> = None;
+    let mut apply = false;
+    let mut json = false;
+
+    for arg in args {
+        match arg.as_str() {
+            "--apply" => apply = true,
+            "--json" => json = true,
+            flag if flag.starts_with("--") => {
+                return usage(&format!("unknown flag `{flag}` for `test`"));
+            }
+            positional => {
+                if path.is_none() {
+                    path = Some(PathBuf::from(positional));
+                } else {
+                    return usage(&format!("unexpected argument `{positional}` for `test`"));
+                }
+            }
+        }
+    }
+
+    match path {
+        Some(path) => Command::Test { path, apply, json },
+        None => usage("`test` requires a <path>"),
     }
 }
 

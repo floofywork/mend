@@ -54,7 +54,7 @@ pub use mock::MockCompleter;
 pub use parsed_edit::ParsedEdit;
 pub use prompt::{edit_prompt, explain_prompt, fix_prompt, test_prompt};
 pub use render_diff::render_diff;
-pub use route::run;
+pub use route::{run, run_cli};
 pub use search_replace::parse_search_replace;
 pub use structure::extract_structure;
 pub use test_cmd::run_test;
