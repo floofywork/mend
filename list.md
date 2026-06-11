@@ -528,7 +528,7 @@ not_doing:
   - No test generation.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The instruction-driven mutation subcommand. Inputs: a path, an instruction, config, and a Completer; bounds: one round-trip producing edits. Outputs: edits routed through the output dispatcher. Errors/edges: an unparseable response is a `Parse` error and non-zero exit. Invariant: the instruction reaches the prompt verbatim. Done-check: the route, passthrough, and parse-failure criteria. Fenced from fix and test so each command stays single-purpose.
