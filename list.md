@@ -645,7 +645,7 @@ not_doing:
   - No retry or backoff.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The real backend behind the trait. Inputs: a prompt, plus model and endpoint from config; bounds: one HTTP POST per call. Outputs: the model's completion text or a `Completer` error. Errors/edges: any non-2xx status is a `Completer` error. Invariant: the rest of the system depends only on the trait, never on this type. Done-check: the POST, config-read, and non-2xx criteria. Fenced from streaming and retries to keep it minimal and behind a feature later.
