@@ -1221,3 +1221,5 @@ COVERAGE: C1=c1_builds_test_prompt_and_whole_file_edit; C2=c2_dryrun_routes_whol
   [✓] test
   [✓] mutation
   ✓ done (diff b629aefc)
+
+── iteration 5: T-07.05  Route subcommand dispatch

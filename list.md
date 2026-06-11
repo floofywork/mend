@@ -597,7 +597,7 @@ not_doing:
   - No Completer backend choice (default vs live).
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The top-level wiring from parsed command to handler. Inputs: a parsed command, loaded config, and a Completer; bounds: a one-of-four selection. Outputs: invocation of the matching handler. Errors/edges: a new unhandled variant fails to compile rather than silently falling through. Invariant: exactly one handler runs per invocation. Done-check: the selection, injection, and exhaustiveness criteria. Fenced to dispatch so handler logic lives in its own task.
