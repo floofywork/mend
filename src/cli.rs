@@ -44,6 +44,26 @@ pub enum Command {
         /// Emit machine-readable JSON output.
         json: bool,
     },
+    /// Repair a file, optionally guided by a compiler/runtime error message.
+    Fix {
+        /// The file to fix.
+        path: PathBuf,
+        /// An optional error message describing the defect to repair.
+        error: Option<String>,
+        /// Apply the fix to disk rather than performing a dry run.
+        apply: bool,
+        /// Emit machine-readable JSON output.
+        json: bool,
+    },
+    /// Generate tests for a file's public API.
+    Test {
+        /// The file to generate tests for.
+        path: PathBuf,
+        /// Apply the generated tests to disk rather than performing a dry run.
+        apply: bool,
+        /// Emit machine-readable JSON output.
+        json: bool,
+    },
     /// The arguments did not form a valid command; `message` explains why.
     Usage {
         /// A human-readable description of the argument error.
@@ -54,12 +74,14 @@ pub enum Command {
 impl Command {
     /// Whether this command is a dry run — i.e. it must not write to disk.
     ///
-    /// Only `Edit` can mutate the filesystem, and only when `--apply` is given;
-    /// the negation of `apply` is therefore the dry-run flag. Every other
-    /// variant is inherently read-only, so it dry-runs by definition.
+    /// The mutating commands (`Edit`, `Fix`, `Test`) write only when `--apply`
+    /// is given, so the negation of `apply` is their dry-run flag. The read-only
+    /// `Explain` and the non-handler `Usage` dry-run by definition.
     pub fn dry_run(&self) -> bool {
         match self {
-            Command::Edit { apply, .. } => !apply,
+            Command::Edit { apply, .. }
+            | Command::Fix { apply, .. }
+            | Command::Test { apply, .. } => !apply,
             Command::Explain { .. } | Command::Usage { .. } => true,
         }
     }
