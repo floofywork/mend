@@ -319,3 +319,370 @@ No frozen files (tests, MANIFEST, detectors) were touched.
   ✓ done (diff 8d8e66da)
 
 ── iteration 2: T-07.02  Run edit command
+  · system: init
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · The explain command (T-07.01) is the closest analog. Let me study it and the supporting modules.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now let me read the supporting modules the edit command will compose: prompt, parsed_edit, dispatch_output, dispatch, lib, and error.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me check for the task's spec/plan/list documents that may pin the exact signature.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I need the exact search/replace block format the parser expects. Let me read it.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I now have everything needed. The `run_edit` contract: read file → gather context → `edit_prompt(context, instruction)` → complete → `parse_response` → `apply_edits` → `dispatch_output`. Signature mirrors `run_explain` but adds the `OutputMode`/`color` needed to route through the dispatcher. Let me write the frozen RED tests, modeled on the proven `explain.rs` probe harness.
+  · [tool: Write]
+  · [tool result]
+  · Now let me verify the outer test file compiles and the tests fail correctly (RED) because `run_edit` does not exist yet.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All four tests fail correctly in the RED state. The outer `tests/edit.rs` compiles cleanly (the tests ran), and each probe fails to build for exactly the right reason — `cannot find function run_edit in crate mend` — with every *other* `mend::` symbol I reference (`parse_response`, `apply_edits`, `dispatch_output`, `OutputMode`, `extract_structure`, `extract_imports`, `assemble_context`, `edit_prompt`, `MockCompleter`, `MendError`, `Config`) resolving fine. That confirms the contract is wired to real, existing public API and redness comes from the missing entry point, not a parse error.
+
+Summary of the frozen contract the tests pin:
+
+```rust
+fn run_edit(path: &Path, instruction: &str, config: &Config,
+            completer: &dyn Completer, mode: OutputMode, color: bool) -> Result<String>
+```
+
+read file → `assemble_context` → `edit_prompt(context, instruction)` → `complete` → `parse_response` → `apply_edits` → `dispatch_output`.
+
+- **C1** (two tests): `c1_dryrun_routes_parsed_edits_through_dispatch` pins context-gathering + edit-prompt build (prompt embeds structure & imports and equals `edit_prompt(context, instruction)`), response parsing, and routing (output equals the public `dispatch_output` over the parsed/applied edits; file untouched in DryRun). `c1_apply_routes_edits_to_disk` pins the routing end-to-end by observing the dispatcher write the applied edits to disk under Apply.
+- **C2**: `c2_instruction_passes_through_verbatim` uses a space/case/punctuation-laden instruction, asserts the prompt contains it verbatim and equals `edit_prompt(context, instruction)`, and that a *different* instruction steers a different prompt.
+- **C3**: `c3_parse_failure_is_parse_error_nonzero` makes the Completer succeed with a marker-less response so the failure isolates to parsing, pins the specific `MendError::Parse` variant (a wrong variant or `Ok` is rejected), the "parse error" message on stderr, the untouched file, and a non-zero exit.
+
+COVERAGE: C1=c1_dryrun_routes_parsed_edits_through_dispatch,c1_apply_routes_edits_to_disk; C2=c2_instruction_passes_through_verbatim; C3=c3_parse_failure_is_parse_error_nonzero
+  · result: success (23 turns, $1.6474)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · I'll start by reading CLAUDE.md and exploring the project structure to understand the task.
+  · [tool: Bash]
+  · [tool result]
+  · I'll explore the codebase structure and the frozen tests for this task.
+  · [tool: Bash]
+  · [tool result]
+  · The edit test is the frozen test. Let me read it along with the explain command (which is similar and already done) and related modules.
+  · [tool: Bash]
+  · [tool result]
+  · Now let me read the key modules I need: dispatch_output, prompt (edit_prompt), parse_response/apply_edits, and lib.rs exports.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have everything I need. The contract mirrors `run_explain` with parse + apply + dispatch added. Let me create `src/edit.rs`.
+  · [tool: Write]
+  · [tool result]
+  · Now wire it into lib.rs:
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · All 4 frozen tests pass. Let me verify the full suite still passes and there are no warnings.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · The full suite is still running (the probe-based tests are slow). Let me wait for it to complete.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · I'll wait for both background commands to finish.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · The filtered output came up empty. Let me run the full suite directly with a proper timeout.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · These keep auto-backgrounding. Let me just wait for the notifications and read the result file.
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Still running through the 25 test files. Let me wait for completion.
+  · [tool: Bash]
+  · [tool result]
+  · system: task_updated
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The "FAILURE DETECTED" was a false positive — my pattern matched the word "failed" in "0 failed" on every line. All 16 lines show `0 failed`. But I only see 16 result lines and there are ~25 test files; concurrent background `cargo test` runs were contending for the build lock. Let me clean up stray processes and run one final clean verification.
+  · [tool: Bash]
+  · system: task_updated
+  · system: task_updated
+  · [tool result]
+  · The stray processes are killed (exit 144 = killed by signal, expected). Now let me run one clean full test suite.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · system: task_updated
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · This runs cargo test twice (wasteful) but will complete. Let me wait for the notification.
+  · [tool: Read]
+  · [tool result]
+  · I'll wait for the background task to complete rather than polling.
+  · [tool: ScheduleWakeup]
+  · [tool result]
+  · Waiting for the full test suite to complete. The frozen `edit` tests already pass (all 4), the build is clean, and the implementation is wired into `lib.rs`. I'll confirm the rest of the suite is green when the run finishes.
+  · result: success (24 turns, $1.0702)
+  · system: task_updated
+  · system: task_notification
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff 6cf32608)

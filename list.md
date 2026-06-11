@@ -516,7 +516,7 @@ The read-only subcommand. Inputs: a target path, optional symbol, config, and a 
 ### T-07.02  Run edit command
 id: T-07.02
 phase: 7
-status: pending
+status: done
 depends_on: [T-03.01, T-04.05, T-06.04, T-01.01]
 stack: rust
 criteria:
@@ -526,8 +526,11 @@ criteria:
 not_doing:
   - No error-message handling (that is the fix command).
   - No test generation.
-test_files: []
-criteria_map: {}
+test_files: [tests/edit.rs]
+criteria_map:
+  C1: [c1_dryrun_routes_parsed_edits_through_dispatch, c1_apply_routes_edits_to_disk]
+  C2: [c2_instruction_passes_through_verbatim]
+  C3: [c3_parse_failure_is_parse_error_nonzero]
 attempts: 1
 last_failure: ""
 ---
