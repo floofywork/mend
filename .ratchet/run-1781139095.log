@@ -2916,3 +2916,263 @@ All 8 frozen probes pass honestly against real loopback HTTP exchanges. I left `
   ✓ done (diff 71f721c8)
 
 ── iteration 8: T-08.03  Gate live integration test
+  · system: init
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool: Read]
+  · [tool result]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have a clear picture. This task is meta: the GREEN phase will add a `live` feature to `Cargo.toml` and a `#[cfg(feature = "live")]` test that drives `HttpCompleter` against a real endpoint. My RED tests must observe the three criteria and fail because none of that exists yet. Let me confirm the current red preconditions, then write the tests.
+  · [tool: Bash]
+  · [tool result]
+  · Confirmed red preconditions. Now writing the RED tests.
+  · [tool: Write]
+  · [tool result]
+  · Now let me verify the tests compile and fail for the right reasons (no implementation yet).
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · Compiles and all four tests are registered. Now confirm they fail for the right reason (implementation absent).
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All four fail for the correct reason: the feature and gated test don't exist. Let me verify the tests are *satisfiable* by a real GREEN implementation — temporarily add the feature + a gated test, confirm green, then revert so I leave no implementation behind.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The RED phase is complete and verified:
+
+- **Now (no implementation):** all four tests FAIL for the right reasons — no `[features]` table in `Cargo.toml`, no `live` feature (`--features live` errors), and no gated test referencing `HttpCompleter`.
+- **Under a real GREEN implementation** (feature declared + a `#[cfg(feature = "live")]` test driving `HttpCompleter`): all four PASS — so the tests are satisfiable, not impossibly strict.
+- Working tree is clean except the new `tests/live_gate.rs`; I left no implementation behind.
+
+What each test pins:
+- **C1** `c1_live_test_gated_exercises_httpcompleter` — structurally finds a `#[cfg(feature = "live")]` `#[test]` driving `HttpCompleter`, *and* behaviorally requires the suite to compile under `--features live` (proving it builds against the real API).
+- **C2** `c2_live_test_excluded_from_default_run` — enumerates tests with and without the feature via `-- --list` (never executing them, so no network); the live-gated test must appear only under `--features live` and be absent from the default run.
+- **C3** split across two boundary tests: `c3_live_feature_declared_in_cargo_toml` (feature present in `[features]`) and `c3_live_feature_off_by_default` (no `default = [...]` enables `live`) — pinning both sides of the declaration criterion.
+
+All `cargo` invocations use isolated target dirs and `--offline`, keeping the acceptance suite itself network-free, matching the project's existing meta-test pattern.
+
+COVERAGE: C1=c1_live_test_gated_exercises_httpcompleter; C2=c2_live_test_excluded_from_default_run; C3=c3_live_feature_declared_in_cargo_toml,c3_live_feature_off_by_default
+  · result: success (13 turns, $1.0514)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · Let me look at the specific task T-08.03 in list.md and the relevant test files.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · Now let me look at the `HttpCompleter` implementation to understand its API.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · Let me check the `Config` struct and the existing http_completer test for the API patterns.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have a complete picture. Let me check the frozen MANIFEST to confirm Cargo.toml is editable and which files are frozen.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Frozen: only `tests/live_gate.rs` and the criteria_map. Cargo.toml and new test files are fair game. Let me implement.
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Write]
+  · [tool result]
+  · Now let me run the frozen acceptance tests to verify they pass.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · All 4 frozen acceptance tests pass. Let me confirm the full default test suite stays green and network-free, and that the live test compiles under the feature.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Default listing excludes the live test (no `live_http` match), and the `--features live` build compiles cleanly. Let me confirm the live test appears under the feature.
+  · [tool: Bash]
+  · [tool result]
+  · All criteria are satisfied. Done.
+
+## Summary
+
+GREEN phase for **T-08.03: Gate live integration test** complete. All 4 frozen acceptance tests in `tests/live_gate.rs` pass.
+
+Two changes, both outside the frozen set (only `tests/live_gate.rs` and the criteria_map are frozen):
+
+1. **`Cargo.toml`** — added a `[features]` table declaring `live` with `default = []`, so the feature is off by default (C3).
+
+2. **`tests/live.rs`** (new) — a `#[cfg(feature = "live")]` `#[test]` that builds an `HttpCompleter` from `Config` and drives one real `complete()` call against the configured endpoint (C1). Because the test fn is feature-gated, it's absent from the default `cargo test` listing and only compiles in under `--features live` (C2), keeping the default run network-free.
+
+Verified:
+- `cargo test --test live_gate` → 4 passed.
+- Default `cargo test -- --list` does not list `live_http_completer_against_real_endpoint`.
+- `cargo test --features live --no-run` compiles the whole suite, and the live test is listed under the feature.
+
+The implementation adds no `src/` logic and the gated test body has no comparison/boolean operators, so the mutation gate has nothing to flip.
+  · result: success (16 turns, $0.6829)
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff 7181fbb6)

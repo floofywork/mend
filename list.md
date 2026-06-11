@@ -656,7 +656,7 @@ The real backend behind the trait. Inputs: a prompt, plus model and endpoint fro
 ### T-08.03  Gate live integration test
 id: T-08.03
 phase: 8
-status: pending
+status: done
 depends_on: [T-08.02]
 stack: rust
 criteria:
@@ -666,8 +666,11 @@ criteria:
 not_doing:
   - No CI configuration.
   - No credential provisioning or secret storage.
-test_files: []
-criteria_map: {}
+test_files: [tests/live_gate.rs]
+criteria_map:
+  C1: [c1_live_test_gated_exercises_httpcompleter]
+  C2: [c2_live_test_excluded_from_default_run]
+  C3: [c3_live_feature_declared_in_cargo_toml, c3_live_feature_off_by_default]
 attempts: 1
 last_failure: ""
 ---
