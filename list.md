@@ -562,7 +562,7 @@ The repair subcommand. Inputs: a path, an optional error message, config, and a 
 ### T-07.04  Run test command
 id: T-07.04
 phase: 7
-status: pending
+status: done
 depends_on: [T-03.01, T-04.05, T-06.04, T-02.01]
 stack: rust
 criteria:
@@ -572,8 +572,11 @@ criteria:
 not_doing:
   - No test execution.
   - No coverage measurement.
-test_files: []
-criteria_map: {}
+test_files: [tests/test_cmd.rs]
+criteria_map:
+  C1: [c1_builds_test_prompt_and_whole_file_edit]
+  C2: [c2_dryrun_routes_whole_file_against_empty, c2_apply_writes_whole_file_tests]
+  C3: [c3_targets_only_public_api_symbols]
 attempts: 1
 last_failure: ""
 ---

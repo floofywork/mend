@@ -922,3 +922,302 @@ The implementation is complete and the 4 frozen `fix.rs` tests already pass. I'm
   ✓ done (diff b887d1c5)
 
 ── iteration 4: T-07.04  Run test command
+  · system: init
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I'll start by reading the project constitution and exploring the task structure.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have a strong grasp of the conventions. Let me check the CLI wiring and structure to pin down `run_test`'s exact signature.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me check `apply_edits`, `compute_unified_diff`/`render_diff`, and the explain test to confirm whole-file behavior and read-only test patterns.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The contract is clear. Let me confirm the current build/tests are green before adding the red tests.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · Now I'll write the frozen RED tests, mirroring the established probe pattern from `tests/fix.rs`.
+  · [tool: Write]
+  · [tool result]
+  · Now let me verify the test file compiles (so redness comes from the probe failing to build `run_test`, not a parse error) and that the tests fail as expected.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All four tests fail for the right reason — the outer test crate **compiles** cleanly, and redness comes purely from the probe's `cannot find function run_test in crate mend` build error, not from a parse failure. This matches the established probe pattern in `tests/fix.rs`.
+
+## Summary
+
+I wrote `tests/test_cmd.rs` with frozen acceptance tests for T-07.04 (the test-generation subcommand), pinning the minimal contract:
+
+```rust
+fn run_test(path: &Path, config: &Config, completer: &dyn Completer,
+            mode: OutputMode, color: bool) -> Result<String>
+```
+
+The implementation must: read the target, extract its **public** structure + imports, assemble context, build `test_prompt(context)`, wrap the whole completer response as a single `ParsedEdit::WholeFile`, and route it through `dispatch_output(path, "", …)` — empty original for a new test file.
+
+Each criterion is pinned with boundary/both-sides assertions to kill mutants:
+
+- **C1** (`c1_builds_test_prompt_and_whole_file_edit`): drives `Json` mode with a response carrying **none** of the three edit-format markers — the discriminator that proves the response is treated as a whole-file edit (not run through `parse_response`, which would reject it). Asserts prompt `== test_prompt(context)`, edits `== [WholeFile{response}]`, and proposed `== response` verbatim.
+- **C2** (`c2_dryrun_routes_whole_file_against_empty` + `c2_apply_writes_whole_file_tests`): over a **non-empty** source, pins the DryRun output equals dispatch against an **empty** base *and* differs from dispatch against the real contents — killing a mutant that diffs against the file. The Apply arm confirms the routed whole-file tests are written to disk. Confirms DryRun leaves the file untouched (generation never runs the tests).
+- **C3** (`c3_targets_only_public_api_symbols`): source mixes public `fn`/`struct` with private `fn`/`struct`; asserts the public names appear in the prompt and the private names (`secret_helper`, `Hidden`) do **not** — the both-sides pin on the public-only invariant.
+
+Out-of-scope items (no test execution, no coverage measurement) are respected: the probes never compile or run the generated test code, only observe generation/routing.
+
+COVERAGE: C1=c1_builds_test_prompt_and_whole_file_edit; C2=c2_dryrun_routes_whole_file_against_empty,c2_apply_writes_whole_file_tests; C3=c3_targets_only_public_api_symbols
+  · result: success (26 turns, $1.4951)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · I'll start by reading the project constitution and understanding the task structure.
+  · [tool: Read]
+  · [tool: Read]
+  · [tool result]
+  · [tool result]
+  · Now let me look at the frozen test file and the existing command implementations.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · Now let me look at the existing `fix.rs` and `edit.rs` to understand the pattern, plus `lib.rs` and the existing `run_fix` signature.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me verify the signatures of `apply_edits`, `dispatch_output`, `test_prompt`, and `ParsedEdit`.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have everything I need. The contract: `run_test` reads the file, gathers public structure + imports, builds `test_prompt(context)`, calls the completer, wraps the whole response as a single `WholeFile` edit, applies against empty `""`, and dispatches against an empty original. Let me create the module.
+  · [tool: Write]
+  · [tool result]
+  · Now wire it into `lib.rs`:
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · Now let me build and run the frozen test:
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · All 4 frozen tests pass. Let me run the full suite to confirm nothing else broke:
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · The full suite is running in the background (it compiles probe crates, so it's slow). Let me wait for it.
+  · [tool: Bash]
+  · [tool result]
+  · I'll wait for the background task to complete instead.
+  · [tool: Read]
+  · [tool result]
+  · The background task is still running. Let me wait for it to complete.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · The main suite hasn't finished yet (probe-based tests are slow). I'll wait for the original background task notification.
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The grep pipe buffers output, so I'll see results only when `cargo test` completes. Let me wait for the notification by monitoring.
+  · [tool: Bash]
+  · system: task_started
+  · [tool result]
+  · I'll wait for the completion notification from the background tasks.
+  · [tool: Read]
+  · [tool result]
+  · Still running. I'll wait for the background task notification rather than polling.
+  · [tool: ScheduleWakeup]
+  · [tool result]
+  · I've implemented `run_test` and wired it into the crate. The 4 frozen `test_cmd` tests all pass. The full suite is running in the background (the probe-based tests are slow to compile). I'll report back once it completes.
+  · result: success (24 turns, $1.0439)
+  · system: task_updated
+  · system: task_notification
+  · system: task_updated
+  · system: task_notification
+  · system: task_updated
+  · system: task_notification
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff b629aefc)
