@@ -688,3 +688,235 @@ COVERAGE: C1=c1_dryrun_routes_parsed_edits_through_dispatch,c1_apply_routes_edit
   ✓ done (diff 6cf32608)
 
 ── iteration 3: T-07.03  Run fix command
+  · system: init
+  · I'll start by reading the project constitution and understanding the existing structure, especially the edit command since C3 requires fix to route edits identically.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · The find returned no Go files. Let me explore the actual structure.
+  · [tool: Bash]
+  · [tool result]
+  · It's Rust. Let me look at the edit command (T-07.02) since fix must route edits identically, plus the explain command and related modules.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now let me look at the prompt module, lib.rs exports, and the explain command/test for the pattern.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool: Read]
+  · [tool result]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · `fix_prompt(context, error)` already exists in the frozen prompt layer. Let me check the .ratchet task metadata, the prompt tests (to confirm fix_prompt is frozen), and the MockCompleter to design the probe correctly.
+  · [tool: Bash]
+  · [tool: Read]
+  · [tool result]
+  · [tool result]
+  · Let me check the detectors manifest, the cli Command enum, and confirm fix_prompt is already frozen-tested.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have everything I need. Confirmed:
+- `fix_prompt(context: &str, error: &str)` is frozen (tested in `tests/prompt.rs`).
+- The pattern is the probe-based approach from `tests/edit.rs`; `run_fix` (the new entry point) doesn't exist yet → probes fail to build → red.
+- `run_fix` mirrors `run_edit` but takes `error: Option<&str>`; `None` degrades to an inference instruction, edits route through `dispatch_output` identically.
+
+Let me write the frozen RED tests.
+  · [tool: Write]
+  · [tool result]
+  · Now let me verify the test file compiles (std-only, never names `run_fix` outside probe strings) and that it fails red because `run_fix` doesn't exist.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · The test crate compiles. Now let me confirm it fails red (the probes can't build `run_fix` yet). Let me run one test to verify it fails for the right reason.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Red for exactly the right reason: the test crate compiles cleanly, but each probe fails to build because `mend::run_fix` does not exist yet — not because the test file fails to parse. The other three tests share the identical probe structure and fail the same way.
+
+RED phase complete. Summary:
+
+- **`tests/fix.rs`** — four probe-based acceptance tests for the not-yet-existing `run_fix` entry point, mirroring the frozen `tests/edit.rs` pattern (isolated `--offline` probe crates driven by `MockCompleter`).
+- **C1** `c1_with_error_embeds_error_in_fix_prompt` — `Some(error)`: pins `prompt == fix_prompt(context, error)`, the error embedded verbatim (spaces/punctuation intact), context assembled in, and the inference instruction *absent*.
+- **C2** `c2_without_error_prompt_instructs_inference` — `None`: pins `prompt == fix_prompt(context, INFER_INSTRUCTION)`, that it literally instructs "infer the defect from the file", still embeds context, and that a second `Some(error)` run diverges (carries the error, omits the inference text) — proving both branches are exercised, both sides of the boundary, to kill the arm-collapse mutant.
+- **C3** `c3_dryrun_routes_parsed_edits_through_dispatch` + `c3_apply_routes_edits_to_disk` — pin that parsed edits route through `dispatch_output` identically to `edit`: DryRun output equals the dispatcher's own output and leaves the file untouched; Apply writes the applied edits to disk and actually changes the file. The two use `Some` and `None` respectively so both error modes flow through the identical dispatch contract.
+
+The exact `INFER_INSTRUCTION` string is pinned in the test so the GREEN phase's absent-error wording is deterministic.
+
+COVERAGE: C1=c1_with_error_embeds_error_in_fix_prompt; C2=c2_without_error_prompt_instructs_inference; C3=c3_dryrun_routes_parsed_edits_through_dispatch,c3_apply_routes_edits_to_disk
+  · result: success (16 turns, $1.0729)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · Now let me look at the existing source, especially `run_edit`:
+  · [tool: Bash]
+  · [tool result]
+  · `fix_prompt` already exists. Let me read `edit.rs` and check `fix_prompt`:
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · Now I have everything. Let me create `fix.rs` mirroring `edit.rs`:
+  · [tool: Write]
+  · [tool result]
+  · Now wire it into `lib.rs`:
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · All 4 frozen tests pass. Let me verify the full suite still passes:
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · I'll wait for the background task to complete instead.
+  · [tool: Read]
+  · [tool result]
+  · The full test suite is still running (the fix tests spawn probe builds which take time). Let me wait for it to finish.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · The grep filter produces no output until a `test result` line appears. Let me wait for the original task's completion notification.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · I'll wait for the background tasks to notify me of completion.
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The waiter tasks are running in the background and will notify me when `cargo test` completes. Let me wait for those notifications rather than spawning more.
+
+The implementation is complete and the 4 frozen `fix.rs` tests already pass. I'm now waiting on the full-suite run to confirm no regressions.
+  · [tool: Read]
+  · [tool result]
+  · I'll wait for the completion notifications from the background tasks.
+  · [tool: ScheduleWakeup]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · Waiting for the test suite to complete. The wakeup will fire or a task notification will arrive.
+  · result: success (25 turns, $0.9283)
+  · system: task_updated
+  · system: task_notification
+  · system: task_updated
+  · system: task_notification
+  · system: task_updated
+  · system: task_notification
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff b887d1c5)

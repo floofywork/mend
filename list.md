@@ -539,7 +539,7 @@ The instruction-driven mutation subcommand. Inputs: a path, an instruction, conf
 ### T-07.03  Run fix command
 id: T-07.03
 phase: 7
-status: pending
+status: done
 depends_on: [T-03.01, T-04.05, T-06.04, T-01.01]
 stack: rust
 criteria:
@@ -549,8 +549,11 @@ criteria:
 not_doing:
   - No compiler invocation to obtain the error automatically.
   - No test generation.
-test_files: []
-criteria_map: {}
+test_files: [tests/fix.rs]
+criteria_map:
+  C1: [c1_with_error_embeds_error_in_fix_prompt]
+  C2: [c2_without_error_prompt_instructs_inference]
+  C3: [c3_dryrun_routes_parsed_edits_through_dispatch, c3_apply_routes_edits_to_disk]
 attempts: 1
 last_failure: ""
 ---
