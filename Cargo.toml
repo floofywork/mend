@@ -6,3 +6,10 @@ edition = "2021"
 [dependencies]
 syn = { version = "2", features = ["full"] }
 quote = "1"
+
+[features]
+# Off by default: the `live` feature opts in to the manually-run integration
+# test that exercises `HttpCompleter` against a real endpoint, so the default
+# `cargo test` run never compiles it and never touches the network.
+default = []
+live = []
