@@ -585,7 +585,7 @@ The test-generation subcommand. Inputs: a path, config, and a Completer; bounds:
 ### T-07.05  Route subcommand dispatch
 id: T-07.05
 phase: 7
-status: pending
+status: done
 depends_on: [T-00.03, T-07.01, T-07.02, T-07.03, T-07.04, T-01.03]
 stack: rust
 criteria:
@@ -595,8 +595,11 @@ criteria:
 not_doing:
   - No business logic beyond selection and wiring.
   - No Completer backend choice (default vs live).
-test_files: []
-criteria_map: {}
+test_files: [tests/route.rs]
+criteria_map:
+  C1: [c1_explain_command_routes_to_explain_handler, c1_edit_command_routes_to_edit_handler, c1_fix_command_routes_to_fix_handler, c1_test_command_routes_to_test_handler, c1_output_mode_follows_command_flags]
+  C2: [c2_handler_receives_loaded_config, c2_handler_receives_constructed_completer]
+  C3: [c3_dispatch_match_is_exhaustive_over_command]
 attempts: 1
 last_failure: ""
 ---

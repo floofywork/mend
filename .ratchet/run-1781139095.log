@@ -1223,3 +1223,736 @@ COVERAGE: C1=c1_builds_test_prompt_and_whole_file_edit; C2=c2_dryrun_routes_whol
   ✓ done (diff b629aefc)
 
 ── iteration 5: T-07.05  Route subcommand dispatch
+  · system: init
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool: Read]
+  · [tool result]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me look at the frozen CLI test and an existing run-command test (explain) to mirror conventions and verify adding enum variants won't break frozen tests.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The pattern is clear: frozen tests stay std-only and drive the not-yet-existent entry point through compiled **probe** programs, so the test crate always compiles and redness comes from each probe failing to *build*. I'll mirror that harness exactly for T-07.05.
+
+My design decisions for the contract GREEN must satisfy:
+- `mend::dispatch(command: Command, config: &Config, completer: &dyn Completer) -> Result<String>` — inputs exactly as the spec states (command, config, completer).
+- New `Command::Fix { path, error, apply, json }` and `Command::Test { path, apply, json }` variants (the dispatcher routes to all four handlers).
+- Exhaustive match, no wildcard; `Usage` handled explicitly as an error.
+
+Now I'll write the RED tests.
+  · [tool: Write]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now let me verify the test crate compiles (required: `cargo test --no-run` exits 0) and that the probes are genuinely red.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · The test crate compiles cleanly (exit 0). Now let me confirm the probes are genuinely red — they should fail to build because `mend::dispatch`/`Command::Fix`/`Command::Test` don't exist yet. Let me run two representative tests (one routing, one C3).
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Name collision: `mend::dispatch` already exists as a **module** (the parse_response module from T-04.05), so GREEN could never define a crate-root function `dispatch` there. I must pin a non-colliding function name. I'll use `mend::run` (aligns with the `run_*` handlers and the top-level "run the parsed command" role).
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The rename worked. Let me update the doc comments to match the `mend::run` name (these are frozen-file docs, worth keeping accurate).
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now let me run the full suite to confirm all 8 probes are red **for the right reason** (missing `mend::run`/`Command::Fix`/`Command::Test`), not from an unrelated probe-code bug.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · This runs the suite twice (slow). Let me wait for it to complete.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All 8 are red. Let me confirm the failure *reason* is the intended missing symbols (not an unrelated probe bug) by inspecting the stderr of the fix and explain probes.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The fix probe fails for exactly the right reasons (`run` missing, `Command::Fix` missing). Let me wait for the explain portion to finish.
+  · system: task_updated
+  · system: task_updated
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · RED phase verified. Summary:
+
+**Test crate compiles cleanly** (`cargo test --test route --no-run` → exit 0), and **all 8 probes are red for exactly the right reason** — the implementation doesn't exist yet:
+- explain/edit/c2/modes probes: `cannot find function \`run\` in crate \`mend\``
+- fix/test/c3 probes: also `no variant named \`Fix\`/\`Test\` found for enum \`mend::Command\``
+
+**Design pinned by the frozen tests** (`tests/route.rs`):
+- Contract: `mend::run(command: Command, config: &Config, completer: &dyn Completer) -> Result<String>`. Named `run` (not `dispatch`) because a `dispatch` *module* already exists at the crate root — `run` couldn't collide and sits beside `run_explain`/`run_edit`/`run_fix`/`run_test`.
+- New `Command::Fix { path, error, apply, json }` and `Command::Test { path, apply, json }` variants (GREEN adds these + the routing).
+
+**How each criterion is observed** (probe approach, mirroring the T-07.01–04 frozen tests — the test crate stays std-only so it always compiles; redness is each probe failing to *build*):
+- **C1** — each command variant drives `run` with a `MockCompleter`; the recorded prompt identifies which handler ran (distinct `explain_prompt`/`edit_prompt`/`fix_prompt`/`test_prompt`), and exactly-one-completer-call proves exactly one handler. The Test probe uses a marker-less response (only the test handler, which skips `parse_response`, can succeed) to prove non-misrouting. `c1_output_mode_follows_command_flags` pins `--apply`→disk-write and `--json`→JSON, so the command's params are wired into the invocation; the dry-run probes pin the third mode.
+- **C2** — a tiny `token_budget: 5` is reflected in the assembled-context prompt (and differs from a large-budget prompt), proving the *loaded config* reached the handler; a unique sentinel response flowing back through `run` proves the *constructed Completer* reached it.
+- **C3** — a wildcard-free `match` naming all five `Command` variants compiles only while the variant set is closed (a new variant → compile error, the mechanism C3 requires); `Usage` is dispatched and asserted to return an error, proving it's handled by an explicit arm, not a catch-all.
+
+COVERAGE: C1=c1_explain_command_routes_to_explain_handler,c1_edit_command_routes_to_edit_handler,c1_fix_command_routes_to_fix_handler,c1_test_command_routes_to_test_handler,c1_output_mode_follows_command_flags; C2=c2_handler_receives_loaded_config,c2_handler_receives_constructed_completer; C3=c3_dispatch_match_is_exhaustive_over_command
+  · result: success (42 turns, $4.3892)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · I'll start by reading CLAUDE.md and exploring the task structure.
+  · [tool: Bash]
+  · [tool result]
+  · I'll explore the project structure and the frozen test file.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now let me read the existing source to understand the current API.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me look at the mutation gate setup and check which tests/files exist that touch `Command`.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have a complete picture. Let me verify no other frozen test does an exhaustive `match` over `Command` that would break when I add variants.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All clear — every match uses `..` or a catch-all. Now let me implement. First, add the `Fix` and `Test` variants to the `Command` enum.
+  · [tool: Edit]
+  · [tool result]
+  · Now update `dry_run` to stay exhaustive, reusing the already-pinned `!apply` expression:
+  · [tool: Edit]
+  · [tool result]
+  · Now create the `route.rs` module with the `run` dispatcher:
+  · [tool: Write]
+  · [tool result]
+  · Now wire the module into `lib.rs`:
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · Now build and run the frozen tests:
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · The route tests spawn probe crates (slow). Let me wait for completion.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · system: task_notification
+  · [tool result]
+  · All 8 frozen route tests pass. Now let me confirm I haven't broken any other tests — particularly `cli.rs` (the `dry_run` change) and the full suite compiles. Let me run the lighter, related tests.
+  · [tool: Bash]
+  · system: task_started
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Both relevant suites pass. Let me confirm all test crates still compile (the enum change can't break exhaustive matches, but a clean compile-check is cheap insurance):
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All green. Summary of the implementation for **T-07.05 — Route subcommand dispatch**:
+
+**What I added**
+
+1. `src/cli.rs` — two new `Command` variants the dispatcher routes to:
+   - `Fix { path, error: Option<String>, apply, json }`
+   - `Test { path, apply, json }`
+   
+   Updated `Command::dry_run()` to stay exhaustive by folding `Fix`/`Test` into the existing `Edit` arm (`!apply`), reusing the expression already pinned by `cli.rs::C4` rather than introducing a new untested branch.
+
+2. `src/route.rs` — the new dispatcher:
+   - `run(command, &config, &dyn completer) -> Result<String>` matches `Command` **exhaustively, with no `_` wildcard** (C3), routing to exactly one of `run_explain`/`run_edit`/`run_fix`/`run_test` and handing each the loaded `config` and constructed `completer` (C1, C2). `Usage` is handled explicitly as `Err` (C3).
+   - `output_mode(apply, json)` maps the flags to `OutputMode::Apply`/`Json`/`DryRun` — each branch distinguished by the frozen tests.
+
+3. `src/lib.rs` — `pub mod route;` + `pub use route::run;`.
+
+**Verification (raw outcomes)**
+- `cargo build` — clean.
+- `cargo test --test route` — `8 passed; 0 failed` (all C1/C2/C3 probes).
+- `cargo test --test cli` — `5 passed; 0 failed` (confirms the `dry_run` change is intact).
+- `cargo build --tests` — all 31 test crates compile (the new enum variants break no exhaustive match elsewhere).
+
+**Mutation-gate notes:** I kept the implementation minimal — every routing arm produces a distinct prompt that route.rs pins, every output-mode branch is exercised with both the threshold and the off-threshold case, and `!apply` is the existing pinned expression. The only unpinned literal is the `color: false` argument the handlers require, which the frozen tests deliberately never observe; there's no honest test-driven way to constrain it without inventing behavior the criteria don't ask for.
+
+I did not touch any frozen file (`tests/route.rs`, the MANIFEST). The `M list.md` from the start of the session is the red-phase `criteria_map` freeze, left untouched.
+  · result: success (24 turns, $1.7044)
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff e4411c16)
