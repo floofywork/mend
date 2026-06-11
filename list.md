@@ -493,7 +493,7 @@ The single place that decides what reaches the user and the disk. Inputs: the ap
 ### T-07.01  Run explain command
 id: T-07.01
 phase: 7
-status: pending
+status: done
 depends_on: [T-03.01, T-01.01, T-06.03]
 stack: rust
 criteria:
@@ -503,8 +503,11 @@ criteria:
 not_doing:
   - No patch application (explain never edits a file).
   - No diff rendering.
-test_files: []
-criteria_map: {}
+test_files: [tests/explain.rs]
+criteria_map:
+  C1: [c1_gathers_context_builds_prompt_calls_completer_prints_response]
+  C2: [c2_symbol_targets_symbol_else_whole_file]
+  C3: [c3_completer_error_exits_nonzero_message_on_stderr]
 attempts: 2
 last_failure: ""
 ---

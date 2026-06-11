@@ -3,3 +3,317 @@ Ratchet run — base branch `main`, stack `rust`
   · ⚠️  pre-flight: untracked files present: .ratchet/run-1781139095.log
 
 ── iteration 1: T-07.01  Run explain command
+  · system: init
+  · I'll start by understanding the task and codebase structure. Let me explore the relevant files.
+  · [tool: Bash]
+  · [tool result]
+  · I'll explore the codebase structure and the task details in parallel.
+  · [tool: Bash]
+  · [tool result]
+  · Let me look at the task definition and key existing modules.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · This is attempt 2. Let me look at the dependency modules and existing test conventions. Let me read the key source files.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me look at the test conventions and the building blocks for context gathering.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me check the plan.md and an existing test file to understand conventions and intended API.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me check the prior attempt's approach via git and the .ratchet journal.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · Let me read main.rs and the test harness conventions used in existing tests.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The probe-harness pattern is clear. Let me check whether completed tasks populate `test_files`/`criteria_map` in list.md, and confirm there's no existing explain test.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have everything I need. The codebase uses a probe-harness pattern (compile a tiny program against the real `mend` crate, redness comes from the probe failing to build). I'll define the `run_explain` contract and pin all three criteria with real probes that capture stdout, stderr, and exit codes.
+
+Let me first update `list.md` (fix documents before code), then write the test file.
+  · [tool: Edit]
+  · [tool result]
+  · Now the test file:
+  · [tool: Write]
+  · [tool result]
+  · Now let me verify the tests compile (std-only, always compiles) and fail in the red state (probes fail to build because `run_explain` doesn't exist).
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All three tests compile (the test crate built cleanly) and fail for exactly the right reason: the probes fail to build because `mend::run_explain` does not exist yet. Every other referenced API (`extract_structure`, `extract_imports`, `assemble_context`, `explain_prompt`, `Config`, `MockCompleter`) resolved — the sole error is the missing entry point.
+
+Summary of what I wrote (`tests/explain.rs`, following the codebase's established probe-harness pattern from `tests/completer.rs`):
+
+- **C1** — `c1_gathers_context_builds_prompt_calls_completer_prints_response`: a probe writes a target file with a `use` and a public `fn`, drives `run_explain` with a scripted `MockCompleter`, and pins that the returned/printed text is the completion verbatim, the completer was called exactly once with `explain_prompt(assemble_context(structure, imports, budget), None)` (embedding both structure and imports), and the file is left byte-for-byte unchanged.
+- **C2** — `c2_symbol_targets_symbol_else_whole_file`: runs `run_explain` twice and pins the prompt to the frozen `explain_prompt` `Some`/`None` forms — both sides of the symbol boundary, asserting they differ.
+- **C3** — `c3_completer_error_exits_nonzero_message_on_stderr`: an empty mock script forces a completer failure; the real probe process exits non-zero with the message on stderr, and the test requires non-zero exit + the message on stderr + no success sentinel (killing any mutant that swallows the error into `Ok`).
+
+The contract these pin: `run_explain(path: &Path, symbol: Option<&str>, config: &Config, completer: &dyn Completer) -> Result<String>` — read-only, returns the explanation on success, propagates the completer error on failure. I also set `test_files: [tests/explain.rs]` in `list.md`.
+
+COVERAGE: C1=c1_gathers_context_builds_prompt_calls_completer_prints_response; C2=c2_symbol_targets_symbol_else_whole_file; C3=c3_completer_error_exits_nonzero_message_on_stderr
+  · result: success (15 turns, $1.4280)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I'll start by reading the key project files to understand the task and the frozen tests.
+  · [tool: Bash]
+  · [tool result]
+  · Let me look at the T-07.01 task specifically and the existing source code.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · Now let me read the frozen test file and the existing source code.
+  · [tool: Read]
+  · [tool result]
+  · Now let me examine the existing source code to understand the available building blocks.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Let me look at the building blocks the test uses: prompt, context, config, structure, imports, mock.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have everything I need. Now let me create the `run_explain` entry point. Let me write the explain module.
+  · [tool: Write]
+  · [tool result]
+  · Now wire it into lib.rs:
+  · [tool: Edit]
+  · [tool result]
+  · I read lib.rs via Bash, not the Read tool. Let me Read it first.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · Now let me verify it builds and run the frozen tests.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · All 3 frozen tests pass. Let me run the full test suite to ensure no regressions.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · The background task will notify me when done. Let me check its current output.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · I'll wait for the background test task to complete and notify me.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The grep-filtered output only appears at completion. Let me wait for the task to finish.
+  · [tool: ToolSearch]
+  · [tool result]
+  · [tool: TaskOutput]
+  · [tool result]
+  · Still running — the probe-based integration tests are slow. Let me continue waiting.
+  · [tool: TaskOutput]
+  · system: task_updated
+  · [tool result]
+  · system: task_updated
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All tests pass — full suite is green (71 tests, 0 failures). Let me clean up the stray background watcher task.
+  · [tool: ToolSearch]
+  · [tool result]
+  · The watcher task already completed on its own. The GREEN phase is done.
+
+## Summary
+
+Implemented `run_explain` for task **T-07.01** (Run explain command) against the frozen tests.
+
+**New file** `src/explain.rs` — the read-only `explain` entry point:
+```rust
+pub fn run_explain(
+    path: &Path,
+    symbol: Option<&str>,
+    config: &crate::Config,
+    completer: &dyn Completer,
+) -> Result<String> {
+    let source = std::fs::read_to_string(path)?;
+    let structure = extract_structure(&source)?;
+    let imports = extract_imports(&source)?;
+    let context = assemble_context(&structure, &imports, config.token_budget as usize);
+    let prompt = explain_prompt(&context, symbol);
+    completer.complete(&prompt)
+}
+```
+
+**Wired into `src/lib.rs`**: added `pub mod explain;` and `pub use explain::run_explain;`.
+
+This composes the existing deterministic layers exactly as the test pins them — `explain_prompt(assemble_context(structure, imports, budget), symbol)`:
+- **C1**: reads the file, gathers context (structure + imports), builds the explain prompt, calls the Completer, returns its response verbatim; the file is only read, never written.
+- **C2**: `symbol` is threaded straight into `explain_prompt`, so `Some`/`None` steer the target.
+- **C3**: the Completer's `Err` propagates unchanged via `?`/return (binary turns it into a non-zero exit with the message on stderr).
+
+It's minimal — straight-line `?`-propagation with no added branches or comparisons, so the mutation gate has no surplus operators to keep alive.
+
+**Verification:**
+- `cargo build` — clean.
+- `cargo test --test explain` — 3/3 frozen tests pass.
+- Full suite — all 71 tests across 21 test files pass, 0 failures (no regressions).
+
+No frozen files (tests, MANIFEST, detectors) were touched.
+  · result: success (25 turns, $1.3334)
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff 8d8e66da)
