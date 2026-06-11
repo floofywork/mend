@@ -2538,3 +2538,379 @@ My additions contain no mutable operators (`==`/`>=`/`&&`/`+` …) — the parse
   ✓ done (diff 29007e97)
 
 ── iteration 7: T-08.02  Implement HTTP Completer
+  · system: init
+  · I'll start by reading the project constitution and understanding the existing structure.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · Let me look at the task documents and the relevant existing source files.
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I have the test pattern. Now let me examine the existing source: Config, MendError, the Completer trait, mock, and Cargo.toml.
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · I now understand the full picture. Key facts:
+- The codebase has **no HTTP crate** (only `syn`/`quote`), and tests use the "probe" pattern: compile a tiny program against the real `mend` crate, run it `--offline`. So the GREEN `HttpCompleter` must do a real HTTP POST with **std-only raw TCP**.
+- `Config` has public fields `model`, `endpoint`, `token_budget`. `MendError::Completer(String)` is the target error. The `Completer` trait is `fn complete(&self, prompt: &str) -> Result<String>`.
+
+My RED tests will use the same probe harness, but each probe spins up a **one-shot loopback HTTP server** (std `TcpListener`) so the POST, config-read, and status handling are observable deterministically without external network.
+
+Let me check the existing test_cmd test briefly to confirm there's no networking-permission concern and look at route.rs usage, then write.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · No existing `HttpCompleter`. Now I'll write the RED test file. I'll name it `tests/http_completer.rs`.
+  · [tool: Write]
+  · [tool result]
+  · Now let me verify the test file compiles (std-only) and fails because `HttpCompleter` doesn't exist yet.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · The test file compiles. Now let me run it to confirm it fails because the implementation doesn't exist yet (probes should fail to build against `mend`).
+  · [tool: Bash]
+  · system: task_started
+  · system: task_notification
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All 8 tests fail with the expected `cannot find HttpCompleter in mend` — redness comes from the probe failing to build against `mend`, exactly as intended. The test file itself compiles (std-only).
+
+Let me do one sanity check that my embedded `SERVER_HELPER` harness is itself well-formed Rust (so GREEN won't fail for a harness bug rather than a real reason). I'll compile just the helper with a trivial `main`, independent of `mend`.
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · The harness round-trips a real POST correctly (`HARNESS_OK`): it captures the verb and prompt bytes and returns the configured status/body — confirming a std-only raw-TCP `HttpCompleter` will satisfy these probes in GREEN.
+  · [tool: Bash]
+  · [tool result]
+  · ## RED phase complete for T-08.02
+
+I wrote `tests/http_completer.rs` — 8 frozen acceptance tests covering all three criteria. They compile (std-only) and fail because `mend::HttpCompleter` does not exist yet (`error[E0433]: cannot find HttpCompleter in mend`), so redness comes from the probe failing to *build* against the real crate, never from the test file failing to parse — matching the established T-01.01/T-01.02 probe pattern.
+
+**Design.** Each probe stands up a one-shot loopback HTTP server using only `std::net`, points `Config.endpoint` at its OS-assigned port, drives `complete`, then inspects the exact request bytes and controls the exact response status. This makes the HTTP behaviour deterministic and confined to loopback (no external network), while `--offline` forces the GREEN implementation to speak HTTP with std-only raw TCP — no client crate. I verified the embedded server harness compiles and correctly round-trips a POST independently, so GREEN won't fail for a harness bug.
+
+**Criteria coverage and mutation-boundary pinning:**
+- **C1** — constructs the completer behind `Box<dyn Completer>` (proves trait impl + object-safety), asserts the captured request `starts_with("POST ")`, carries the prompt, and that `complete` returns the response body.
+- **C2** — endpoint proven *structurally* (a random loopback port is only reachable if the completer read `Config.endpoint`); model proven by asserting a distinctive `Config.model` string appears in the request.
+- **C3** — both sides of the 2xx band: 200 (lower) and 299 (upper) are `Ok(body)`; 199, 300, 404, 500 are `MendError::Completer(_)`. This pins `>= 200` (kills →`>`, →`<=`), `< 300` (kills →`<=`, →`>`), and `&&` (kills →`||`).
+
+I did not write the implementation, and stayed within scope (no streaming, no retry).
+
+COVERAGE: C1=c1_implements_completer_by_posting_prompt_and_returns_body; C2=c2_reads_model_and_endpoint_from_config; C3=c3_status_200_lower_boundary_is_success,c3_status_299_upper_boundary_is_success,c3_status_300_just_past_2xx_is_completer_error,c3_status_199_just_below_2xx_is_completer_error,c3_status_404_is_completer_error,c3_status_500_is_completer_error
+  · result: success (16 turns, $1.3679)
+  [✓] fail-right
+  [✓] criteria-coverage
+  · system: init
+  · [tool: Bash]
+  · [tool: Read]
+  · [tool result]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now I understand the contract. Let me write the `HttpCompleter` using std-only raw TCP, with the minimal operator surface needed.
+  · [tool: Write]
+  · [tool result]
+  · Now wire it into `lib.rs`:
+  · [tool: Edit]
+  · [tool result]
+  · [tool: Edit]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · Now let me build and run the frozen tests:
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · The probe tests compile fresh crates, so they take a while. Let me wait for completion.
+  · [tool: Bash]
+  · system: task_started
+  · system: task_updated
+  · system: task_updated
+  · [tool result]
+  · [tool: Read]
+  · [tool result]
+  · All 8 frozen tests pass. Let me kill the now-redundant waiter and run the full suite to confirm no regressions.
+  · [tool: Bash]
+  · system: task_updated
+  · [tool result]
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · All passing, clean build. Let me check the pre-existing `list.md` modification to understand its state:
+  · [tool: Bash]
+  · [tool result]
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · system: thinking_tokens
+  · GREEN phase complete for **T-08.02: Implement HTTP Completer**.
+
+## What I built
+
+`src/http_completer.rs` — a `HttpCompleter` that implements `Completer` using std-only raw TCP (no third-party HTTP crate, as the offline-built probes require):
+
+- **C1** — `complete` opens one `TcpStream`, writes an HTTP `POST` carrying the prompt, reads the response to EOF, and returns the response body on success.
+- **C2** — `HttpCompleter::new(&Config)` clones `model` and `endpoint` from `Config`; the model is embedded in the request body and the endpoint is the address dialed (proven structurally by the OS-assigned loopback port).
+- **C3** — the status line is parsed and gated by `status >= 200 && status < 300`; anything else becomes `MendError::Completer`.
+
+Wired `pub mod http_completer;` and `pub use http_completer::HttpCompleter;` into `lib.rs`.
+
+## Mutation-gate discipline
+
+I kept the operator surface to exactly the one boundary expression `status >= 200 && status < 300`, with no arithmetic or auxiliary comparisons. The frozen boundary tests (199/200/299/300 plus 404/500) kill every relational and `&&`→`||` mutant of it, and the body-equality assertions kill the function-body-replacement mutant.
+
+## Verification
+
+```
+test result: ok. 8 passed; 0 failed  (tests/http_completer.rs, 164s)
+cargo build — clean, no warnings
+cargo test --lib — ok
+```
+
+All 8 frozen probes pass honestly against real loopback HTTP exchanges. I left `list.md` status and the frozen `criteria_map` untouched — those are the harness's to transition.
+  · result: success (25 turns, $1.4286)
+  [✓] integrity
+  [✓] checker
+  [✓] compile
+  [✓] test
+  [✓] mutation
+  ✓ done (diff 71f721c8)

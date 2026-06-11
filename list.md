@@ -633,7 +633,7 @@ The full-stack determinism guarantee. Inputs: scripted MockCompleter responses d
 ### T-08.02  Implement HTTP Completer
 id: T-08.02
 phase: 8
-status: pending
+status: done
 depends_on: [T-01.01, T-01.03]
 stack: rust
 criteria:
@@ -643,8 +643,11 @@ criteria:
 not_doing:
   - No streaming responses.
   - No retry or backoff.
-test_files: []
-criteria_map: {}
+test_files: [tests/http_completer.rs]
+criteria_map:
+  C1: [c1_implements_completer_by_posting_prompt_and_returns_body]
+  C2: [c2_reads_model_and_endpoint_from_config]
+  C3: [c3_status_200_lower_boundary_is_success, c3_status_299_upper_boundary_is_success, c3_status_300_just_past_2xx_is_completer_error, c3_status_199_just_below_2xx_is_completer_error, c3_status_404_is_completer_error, c3_status_500_is_completer_error]
 attempts: 1
 last_failure: ""
 ---
