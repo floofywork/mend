@@ -20,3 +20,4 @@ repo = "floofywork/mend"
 # in-process — so this changes speed, never correctness.
 [remote_gates]
 enabled = true
+regression = true
