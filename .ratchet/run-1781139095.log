@@ -920,3 +920,5 @@ The implementation is complete and the 4 frozen `fix.rs` tests already pass. I'm
   [✓] test
   [✓] mutation
   ✓ done (diff b887d1c5)
+
+── iteration 4: T-07.04  Run test command

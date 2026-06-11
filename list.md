@@ -574,7 +574,7 @@ not_doing:
   - No coverage measurement.
 test_files: []
 criteria_map: {}
-attempts: 0
+attempts: 1
 last_failure: ""
 ---
 The test-generation subcommand. Inputs: a path, config, and a Completer; bounds: produces test code for the public API. Outputs: generated tests routed through dispatch as a whole-file edit. Errors/edges: a not-yet-existing test file diffs against empty. Invariant: only public-API symbols are targeted. Done-check: the whole-file, routing, and public-only criteria. Fenced from running the tests so generation stays deterministic.
